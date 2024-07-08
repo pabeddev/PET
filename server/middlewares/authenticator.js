@@ -84,7 +84,7 @@ const verifyToken = (token) => {
     return new Promise((resolve, reject) => {
         if (token) {
             try {
-                resolve(jwt.verify(token.substring(7), process.env.SECRET_KEY));
+                resolve(jwt.verify(token.substring(7), process.env.JWT_SECRET_KEY));
 
             } catch (err) {
 

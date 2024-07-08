@@ -81,7 +81,7 @@ class AuthServices {
 
     async detailToken(token) {
         try {
-            const data = jwt.verify(token.substring(7), process.env.SECRET_KEY);
+            const data = jwt.verify(token.substring(7), process.env.JWT_SECRET_KEY);
 
             return {
                 start: data["iat"],
@@ -109,13 +109,13 @@ class AuthServices {
                 const details = await this.detailToken(dataSession);
 
                 if (details["expired"]) {
-                    const tokenDecrypted = jwt.decode(dataSession.substring(7), process.env.SECRET_KEY);
+                    const tokenDecrypted = jwt.decode(dataSession.substring(7), process.env.JWT_SECRET_KEY);
                     const newToken = jwt.sign({
                             user_id: tokenDecrypted["user_id"],
                             role: tokenDecrypted["role"]
-                        }, process.env.SECRET_KEY,
-                        {expiresIn: process.env.EXPIRE});
-                    const newTokenDecrypted = jwt.decode(newToken, process.env.SECRET_KEY);
+                        }, process.env.JWT_SECRET_KEY,
+                        {expiresIn: process.env.JWT_EXPIRE});
+                    const newTokenDecrypted = jwt.decode(newToken, process.env.JWT_SECRET_KEY);
 
                     return [200, {
                         token: newToken,

@@ -5,6 +5,8 @@ const rescuerDocs = require("./rescuerDocs");
 const guestDocs = require("./guestDocs");
 const associationsDocs = require("./associationsDocs");
 
+require("dotenv").config();
+
 
 module.exports = {
     "openapi": "3.0.0",
@@ -15,7 +17,7 @@ module.exports = {
     },
     "servers": [
         {
-            "url": "http://localhost:5000"
+            "url": `http://localhost:${process.env.PORT || 3000}/`
         },
         {
             "url": "https://pabed-api-xi.vercel.app/"

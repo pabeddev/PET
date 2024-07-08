@@ -4,8 +4,6 @@
  * @file In this module are the API endpoints.
  */
 
-const { connection } = require("./config/connections");
-const { useTreblle } = require("treblle");
 const { userRouter } = require("./routes/userRoutes");
 const { authRouter } = require("./routes/authRoutes");
 const { adminRouter } = require("./routes/adminRoutes");
@@ -22,13 +20,7 @@ const { postsRouter, bulletinsRouter, blogsRouter } = require("./routes/guestRou
 const { errorsCodes } = require("./utils/codes");
 const app = express();
 
-
 app.use(express.json());
-
-useTreblle(app, {
-    apiKey: process.env.API_KEY,
-    projectId: process.env.PROJECT_ID
-});
 
 app.use(
     "/api-docs",
@@ -88,6 +80,7 @@ app.use((req, res) => {
     );
 });
 
+
 app.listen(parseInt(process.env.PORT, 10), () => {
-    console.log("Listening requests");
+    console.log(`Server running on port http://localhost:${process.env.PORT} 🚀`);
 });

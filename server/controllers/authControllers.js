@@ -134,10 +134,10 @@ const validatePassword = (data) => {
 
             const token = jwt.sign(
                 {user_id: data[1]["user_id"], role: data[1]["role"]},
-                process.env.SECRET_KEY,
-                {expiresIn: process.env.EXPIRE}
+                process.env.JWT_SECRET_KEY,
+                {expiresIn: process.env.JWT_EXPIRE}
             );
-            const decompile = jwt.decode(token, process.env.SECRET_KEY);
+            const decompile = jwt.decode(token, process.env.JWT_SECRET_KEY);
 
             resolve({
                 token: token,

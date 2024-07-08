@@ -17,9 +17,9 @@ require("dotenv").config();
  */
 
 cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.API_CLOUD_KEY,
-    api_secret: process.env.API_SECRET_CLOUD
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_CLOUD_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET_CLOUD
 });
 
 
@@ -37,7 +37,7 @@ mongoose.connect(process.env.URL_DATABASE, {
 const connection = mongoose.connection;
 
 connection.on("error", () => console.log("Connection error"));
-connection.on("connected", () => console.log("Connection to Database is successful"));
+connection.on("connected", () => console.log("Connection to Database is successful 🚀"));
 connection.on("reconnected", () => console.log("Reconnected"));
 
 module.exports = {
