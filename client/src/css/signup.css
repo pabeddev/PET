@@ -1,0 +1,128 @@
+.register-container{
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.logo-section{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logoPet{
+  width: 100px;
+  height: auto;
+}
+
+.img-container{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group{
+  margin-bottom: 20px;
+}
+
+.imgFromSign{
+  width: 550px;
+  height: auto;
+}
+
+.register-img{
+  max-width: 600px;
+  height: auto;
+}
+
+.signup-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.input-group .form-group-register{
+  flex: 1;
+  margin-right: 10px;
+}
+
+.input-group .form-group-register:last-child {
+  margin-right: 0;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.buttonSing{
+  width: 250px;
+  background: #D2E3C8;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.buttonSing:hover{
+  background-color: #a7bb95;
+  color: black;
+}
+
+@media(max-width:768px){
+  .register-container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-container{
+    width: 150px;
+    height: auto;
+    padding: 20px;
+  }
+
+  .form-container{
+    width: 200px;
+  }
+
+  .form-group{
+    text-align: center;
+  }
+
+  .input-group .form-group{
+    flex:1 1 100%;
+    text-align: center;
+  }
+
+  .buttonSing{
+    width: 200px;
+  }
+  .register-img{
+    max-width: 0px;
+    height: 0;
+  }
+}

@@ -1,0 +1,26 @@
+
+.navbar-brand img {
+  height: 50px;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.auth-link {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+}
+
+.btn-sg{
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}

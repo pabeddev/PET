@@ -1,0 +1,134 @@
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+.container-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: 85vh;
+  width: 100%;
+}
+
+.main-content {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: center;
+  background-color: #b2925c;
+  box-sizing: border-box;
+}
+
+.main-content h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.main-content p {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.main-content button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.main-content button:hover{
+  background-color: rgb(64, 64, 64);
+}
+.main-content img.main-image {
+  width: 69%;
+  height: auto;
+  border-radius: 10px;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.main-title-font{
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
+.info-sections {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0px;
+}
+
+.info-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.section1 {
+  background-color: #f1e4c3;
+}
+
+.section2 {
+  background-color: #d2e3c8;
+}
+
+.section3 {
+  background-color: #abc7d8;
+}
+
+.info-section img {
+  max-width: 30%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .container-main {
+    flex-direction: column;
+    height: auto; 
+
+  }
+
+  .main-content,
+  .info-sections {
+    width: 100%;
+    padding: 0px; 
+    text-align: center; 
+  }
+
+  .main-content h1 {
+    font-size: 2em; 
+    margin-bottom: 10px;
+  }
+
+  .main-content p {
+    font-size: 1em; 
+    margin-bottom: 10px; /* Espacio inferior reducido */
+  }
+
+  .main-content button {
+    font-size: 0.9em;
+  }
+
+  .main-content img.main-image {
+    width: 100%; 
+    max-width: none; 
+    align-self: center;
+  }
+
+  .info-section img {
+    max-width: 30%; 
+  }
+}

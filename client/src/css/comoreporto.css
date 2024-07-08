@@ -1,0 +1,15 @@
+.hero-title {
+    padding: 20px;
+    background-color: #154744;
+    color: white;
+    text-align: center;
+    font-display: 2;
+}
+
+.contenido {
+    margin-bottom: 50px; 
+  }
+
+  .container{
+    height: auto;
+  }

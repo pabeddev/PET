@@ -1,0 +1,103 @@
+.login-container{
+  display: flex;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imgFromLog{
+  width: 500px;
+  height: auto;
+}
+
+.logo-section{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logoPet{
+  width: 100px;
+  height: auto;
+}
+
+.welcome-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 20px;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.welcome-title::before,
+.welcome-title::after{
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #000;
+  margin: 0 10px;
+}
+
+.error-message{
+  color: red;
+  margin-bottom: 20px;
+}
+
+.form-section-log{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 20px;
+  width: 1030px;
+}
+
+.form-group{
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control{
+  width: 250px;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.buttonLog{
+  width: 250px;
+  background: #ABC7D8;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.buttonLog:hover{
+  background: #9cb6c7;
+  color: black;
+}
+
+@media (max-width: 768px){
+  .login-container{
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  .imgFromLog{
+    width: 400px;
+    height: 130px;
+  }
+}
