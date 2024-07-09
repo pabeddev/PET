@@ -63,6 +63,8 @@ const Signup = () => {
 
     const response = await createAccount(newUser);
 
+    console.log(response)
+
     if (response.error) {
 
       setError(response.error);

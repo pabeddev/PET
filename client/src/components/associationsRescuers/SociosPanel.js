@@ -23,7 +23,7 @@ const SociosPanel = () => {
                     <div className="container">
                         <RescueForm />
                     </div>
-                    <div class="p-3 mb-2 bg-transparent text-body"></div>
+                    <div className="p-3 mb-2 bg-transparent text-body"></div>
                 </div>
                 
             )}

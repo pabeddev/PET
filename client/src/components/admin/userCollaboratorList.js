@@ -57,7 +57,7 @@ const UserCollaboratorList = () => {
             ) : (
                 <div>
                     {deleteMessage && (
-                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <div className="alert alert-success d-flex align-items-center" role="alert">
                             {deleteMessage}
                         </div>
                     )}

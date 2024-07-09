@@ -50,7 +50,7 @@ const AdminDashboard = () => {
           <h1 className="display-4 fw-bold text-center text-body-emphasis">
             Panel de Administración
           </h1>
-          <div class="p-3 mb-2 bg-transparent text-body"></div>
+          <div className="p-3 mb-2 bg-transparent text-body"></div>
           <div className="row">
             <div className="col-md-6">
               <div className="text-center">

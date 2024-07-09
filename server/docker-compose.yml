@@ -12,7 +12,7 @@ services:
       - "3030:3030"
     environment:
       - PORT=3030
-      - URL_DATABASE=mongodb+srv://pabeddev:pabed1212@pet.pnzs5ty.mongodb.net/?retryWrites=true&w=majority&appName=PET
+      - URL_DATABASE=mongodb+srv://pabeddev:pabed1212@pet.pnzs5ty.mongodb.net/PET?retryWrites=true&w=majority&appName=PET
       - CLOUDINARY_CLOUD_NAME=dv3sawwcd
       - CLOUDINARY_API_KEY=731262451439455
       - CLOUDINARY_API_SECRET=I84-Xq8ndQs2v5fPqdEsSyHjoIw
