@@ -8,27 +8,14 @@ services:
       - /home/node/app/node_modules
     restart: always
     command: npm run dev
-    links:
-      - mongo
     ports:
       - "3030:3030"
-    depends_on:
-      - mongo
     environment:
       - PORT=3030
-      - URL_DATABASE=mongodb://root:root@mongo:27017
+      - URL_DATABASE=mongodb+srv://pabeddev:pabed1212@pet.pnzs5ty.mongodb.net/?retryWrites=true&w=majority&appName=PET
       - CLOUDINARY_CLOUD_NAME=dv3sawwcd
       - CLOUDINARY_API_KEY=731262451439455
       - CLOUDINARY_API_SECRET=I84-Xq8ndQs2v5fPqdEsSyHjoIw
       - JWT_SECRET=b00ff30020bfecbd549c245daec02b0c16219c5191fb1625f79f0eb4a359d4f3dede2bdad2f947b58bf4de4cbd6bcb864523cdaabf31fd346cbc213d400217e1cb3a4e767946e7dddf679f77ab319c7843e724fd34636ae0b6fbc39eb69017c1ad612c36f890f7363d25c1aaee8d9ce02d30a8879f64650c7526b5bc06a5a5b69d267906d4bf33db8d78978f1bb2066ae958e47ca626b1287d66e33ac57ec319bf027901eb59e052e32051ed5567eff8b2f7cad6e3d1580324e644a83c2f6e9d213d78097b4f8d4dd4d0971af16855557d1fef987bc8ac19fae747ae4c70ac2705adfe018466c041ba0422260f41ccee6a37fa8af15f71c7d352f7708e29b71df775fe65339a0c30a9e41ab6e3636f26fe2b863581d4169bf1e7bdc871f5dae8
       - JWT_EXPIRES_IN=7d
-      - ADMIN_TRUSTED_PERMISSIONS=permission1,permission2
-
-  mongo:
-    image: mongo
-    ports:
-      - "27017:27017"
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=root
-    command: mongod --quiet --logpath /dev/null
+      - ADMIN_TRUSTED_PERMISSIONS=b00ff30020bfecbd549c245daec02b0c16219c5191fb1625f79f0eb4a359d4f3dede2bdad2f947b58bf4de4cbd6bcb864523cdaabf31fd346cbc213d400217e1cb3a4e767946e7dddf679f77ab319c7843e724fd34636ae0b6fbc39eb69017c1ad612c36f890f7363d25c1aaee8d9ce02d30a8879f64650c7526b5bc06a5a5b69d267906d4bf33db8d78978f1bb2066ae958e47ca626b1287d66e33ac57ec319bf027901eb59e052e32051ed5567eff8b2f7cad6e3d1580324e644a83c2f6e9d213d78097b4f8d4dd4d0971af16855557d1fef987bc8ac19fae747ae4c70ac2705adfe018466c041ba0422260f41ccee6a37fa8af15f71c7d352f7708e29b71df775fe65339a0c30a9e41ab6e3636f26fe2b863581d4169bf1e7bdc871f5dae8
