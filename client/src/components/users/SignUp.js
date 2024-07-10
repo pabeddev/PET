@@ -116,7 +116,7 @@ const Signup = () => {
                 type="text"
                 id="textName"
                 name="name"
-                placeholder="Introduce tu nombre"
+                placeholder="Nombre"
                 required
                 value={newUser.name}
                 onChange={evt => setNewUser({ ...newUser, name: evt.target.value })}
@@ -131,7 +131,7 @@ const Signup = () => {
                 type="text"
                 id="lastname"
                 name="lastname"
-                placeholder="Introduce tus apellidos"
+                placeholder="Apellidos"
                 required
                 value={newUser.lastname}
                 onChange={evt => setNewUser({ ...newUser, lastname: evt.target.value })}
@@ -147,7 +147,7 @@ const Signup = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Introduce tu correo electronico"
+                placeholder="Correo Electrónico"
                 required
                 value={newUser.email}
                 onChange={evt => setNewUser({ ...newUser, email: evt.target.value })}
@@ -162,7 +162,7 @@ const Signup = () => {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="*Cree una contraseña"
+                placeholder="Contraseña"
                 required
                 value={newUser.password}
                 onChange={evt => setNewUser({ ...newUser, password: evt.target.value })}
@@ -177,7 +177,7 @@ const Signup = () => {
               type="tel"
               id="phone_number"
               name="phone_number"
-              placeholder="Introduce tu telefono"
+              placeholder="Numero de teléfono"
               required
               value={newUser.phone_number}
               onChange={evt => setNewUser({ ...newUser, phone_number: evt.target.value })}

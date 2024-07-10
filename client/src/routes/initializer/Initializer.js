@@ -1,10 +1,7 @@
 import { useEffect } from "react";
-
 import { authUserStore, loaderData } from "../../context/globalContext";
-
 import { getDataLocalStorage } from "../../localstorage/sesionLocalStorage";
-
-import { axiosInstance } from "../../utilities/axiosInstance";
+import { validateAuth } from "api/users";
 
 const Initializer = ({ children }) => {
   const { login } = authUserStore();
@@ -17,14 +14,11 @@ const Initializer = ({ children }) => {
 
         const token = dataSesion.dataToken.token;
 
-        const config = {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        }
         // Obtener si el token es valido aun
         try {
-          await axiosInstance.get('/api/v2/auth/credentials/', config);
+          // TODO: Eliminar el console.log
+          const data = await validateAuth(token);
+          console.log(data)
           await login(dataSesion);
         } catch (error) {
           if (error.response.status === 401) {
@@ -37,9 +31,6 @@ const Initializer = ({ children }) => {
     }
     initializerData();
   }, [loadingData]);
-
-
-
   return children;
 };
 

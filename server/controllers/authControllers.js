@@ -132,6 +132,8 @@ const validatePassword = (data) => {
 
         if (match) {
 
+            console.log('variables de entorno', process.env.JWT_SECRET_KEY, process.env.JWT_EXPIRE)
+
             const token = jwt.sign(
                 {user_id: data[1]["user_id"], role: data[1]["role"]},
                 process.env.JWT_SECRET_KEY,

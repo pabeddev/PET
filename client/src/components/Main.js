@@ -6,6 +6,8 @@ import M1 from "../imagenes/mm4.png";
 import M2 from "../imagenes/mm5.png";
 import M3 from "../imagenes/mm6.png";
 
+import { usersRoutes } from "routes/routes";
+
 const Main = () => {
   return (
     <div className="container-main">
@@ -14,7 +16,7 @@ const Main = () => {
         <p>
           Aplicación web creada para la búsqueda y reporte de mascotas en Tapachula.
         </p>
-        <Link to="/Signup">
+        <Link to={usersRoutes.signUp}>
           <button>Regístrate</button>
         </Link>
           <img src={M01} alt="Dog and Cat" className="main-image" />

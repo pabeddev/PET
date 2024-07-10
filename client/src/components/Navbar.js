@@ -6,6 +6,8 @@ import { deleteDataLocalStorage } from "../localstorage/sesionLocalStorage";
 import Logo from "../imagenes/Logo.png";
 import "../css/navbar.css";
 
+import { usersRoutes } from "routes/routes";
+
 const Navbar = () => {
   const { isAuthenticated, logout, user } = authUserStore();
   const [loading, setLoading] = useState(false);
@@ -38,7 +40,7 @@ const Navbar = () => {
           <ul className="navbar-nav me-auto mb-0 mb-lg-0">
             {isAuthenticated && (
               <li className="nav-item">
-                <Link to="/Reportar-Mascotas" className="nav-link">
+                <Link to={usersRoutes.userPetPost} className="nav-link">
                   Reportar Mascotas
                 </Link>
               </li>
@@ -94,10 +96,10 @@ const Navbar = () => {
               </button>
             ) : (
               <>
-                <Link to="/Login" className="btn me-2">
+                <Link to={usersRoutes.login} className="btn me-2">
                   Inicia Sesión
                 </Link>
-                <Link to="/Signup" className="btn-sg">
+                <Link to={usersRoutes.signUp} className="btn-sg">
                   Regístrate
                 </Link>
               </>

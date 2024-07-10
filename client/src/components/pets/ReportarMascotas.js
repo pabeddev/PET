@@ -10,8 +10,10 @@ import ImagenesMascotas from "./ImagenesMascotas";
 const extencionesImagenes = ["png", "jpg", "jpeg"];
 
 const ReportarMascotas = () => {
+  console.log("Reportar mascotas");
   const navigate = useNavigate();
   const { user, logout, isAuthenticated } = authUserStore();
+  console.log('User:',user);
   const [error, setError] = useState("");
   const [info, setInfo] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -269,7 +271,6 @@ const ReportarMascotas = () => {
                     onClick={handleNext}
                   >
                     {loading ? <CSpinner /> : "Siguiente"} ➡️{" "}
-                    {/Cambiar por un ICON/}
                   </button>
                 </div>
               </div>

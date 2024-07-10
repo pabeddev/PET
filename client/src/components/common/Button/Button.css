@@ -1,0 +1,60 @@
+
+
+.size_sm { 
+    padding: 10px 20px;
+    min-width: 100px;
+    min-height: 30px;
+}
+.size_md { 
+    padding: 15px 32px;
+    min-width: 120px;
+    min-height: 40px;
+}
+.size_lg { 
+    padding: 20px 40px;
+    min-width: 140px;
+    min-height: 50px;
+}
+
+.button_default {
+    background-color: #f44336;
+}
+
+.button_default:hover {
+    background-color: #da190b;
+}
+
+.button_primary {
+    background-color: #4CAF50;
+}
+
+.button_primary:hover {
+    background-color: #45a049;
+}
+
+.button_secondary {
+    background-color: #008CBA;
+}
+
+.button_secondary:hover {
+    background-color: #0077A3;
+}
+
+.button {
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.loading {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

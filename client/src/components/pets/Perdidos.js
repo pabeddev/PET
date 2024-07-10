@@ -3,10 +3,11 @@ import React from 'react';
 function Perdidos() { 
     return (
         <div className='contenedot-testimonio'>
-            <img 
+            {/* TODO: Elimionar componente */}
+            {/* <img 
             className='imagen-testimonio'
             src={require('../imagenes/perro1.jpg')}
-            alt='Foto de Perro1'/>
+            alt='Foto de Perro1'/> */}
             <div className='contenedor-perro-perdido'>
                 <p className='nombre-perro'>Max</p>
                 <p className='raza-perro'>Golden Retriever</p>
