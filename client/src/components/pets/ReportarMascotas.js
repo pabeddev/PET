@@ -10,10 +10,8 @@ import ImagenesMascotas from "./ImagenesMascotas";
 const extencionesImagenes = ["png", "jpg", "jpeg"];
 
 const ReportarMascotas = () => {
-  console.log("Reportar mascotas");
   const navigate = useNavigate();
-  const { user, logout, isAuthenticated } = authUserStore();
-  console.log('User:',user);
+  const { user, logout} = authUserStore();
   const [error, setError] = useState("");
   const [info, setInfo] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -37,11 +35,6 @@ const ReportarMascotas = () => {
     location:""
   });
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/Login");
-    }
-  }, [isAuthenticated]);
 
   const handleSubmit = async (evt) => {
     setLoading(true);
