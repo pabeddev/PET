@@ -46,7 +46,7 @@ const Navbar = () => {
               </li>
             )}
             <li className="nav-item">
-              <Link to="/Mascotas-Perdidas" className="nav-link">
+              <Link to={usersRoutes.userPetGet} className="nav-link">
                 Mascotas Perdidas
               </Link>
             </li>
@@ -70,7 +70,7 @@ const Navbar = () => {
               </>
             )}
             <li className="nav-item">
-              <Link to="/Como-Reporto" className="nav-link">
+              <Link to={usersRoutes.userHowReport} className="nav-link">
                 ¿Cómo Reporto?
               </Link>
             </li>

@@ -1,32 +1,43 @@
 .importancia-mascotas{
-    background-image: url('../imagenes/importancia.png');
-    background-color: #8CA47E;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    color: white;
-    height: 410px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    padding-top: 10vw; 
-    padding-bottom: 10vw; 
+  background-image: url('../imagenes/bg-importancia.png');
+  background-color: #8CA47E;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  color: white;
+  height: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding-top: 10vw; 
+  padding-bottom: 10vw; 
+}
+
+.pet-importancia{
+  background-color: #A8B8B5;
+  width: 100px;
 }
 
 .importancia-mascotas h1 {
-    font-size: 6vw;
-    font-weight: bold;
-    margin-top: -3vw; 
-  }
-  
-  @media (max-width: 767px) {
-    .importancia-mascotas h1 {
-      font-size: 10vw; 
-      margin-top: -3vw;
-    }
+  font-size: 6vw;
+  font-weight: bold;
+  margin-top: -3vw; 
+}
+
+@media (max-width: 767px) {
+  .importancia-mascotas h1 {
+    font-size: 10vw; 
+    margin-top: -3vw;
+
   }
 
-  .pet-importancia{
-    background-color: #A8B8B5;
+  .importancia-mascotas{
+    background-size: 520px;
   }
+
+  .container-pm{
+    max-width: 300px;
+  }
+}
+

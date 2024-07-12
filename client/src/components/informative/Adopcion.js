@@ -1,9 +1,6 @@
 import "../../css/adopcion.css";
-import AdopcionM from "../../imagenes/adopcion-mascotas.jpg";
-import Dog from "../../icons/dog-solid.svg";
-import Cat from "../../icons/cat-solid.svg";
-
-import Footer from "../Footer";
+import AdopcionM from "../../imagenes/info-adopcion.png";
+import iconLogo from "../../imagenes/Logo.png"
 
 const Adopcion = () => {
   return (
@@ -16,7 +13,7 @@ const Adopcion = () => {
           <div className="d-flex gap-3 justify-content-center lead fw-normal"></div>
         </div>
       </div>
-      <div className="container-adopcion my-1 pet-adopcion">
+      <div className="container my-1 pet-adopcion">
         <div className="row p-1 pb-0 pe-lg-0 pt-lg-0 align-items-center rounded-3 border shadow-lg">
           <div className="col-lg-7 p-3 p-lg-5 pt-lg-3 text-cuidados">
             <h1 className="display-4 fw-bold lh-1 text-white">
@@ -30,22 +27,22 @@ const Adopcion = () => {
               o emplumada.
             </p>
           </div>
-          <div className="col-lg-5 p-0 overflow-hidden d-flex justify-content-center">
+          <div className="col-lg-5 overflow-hidden d-flex justify-content-center">
             <img
               src={AdopcionM}
               className="InfoPet"
               alt="Logo"
-              style={{ maxWidth: "100%", height: "auto" }}
+              style={{ maxWidth: "550px", height: "auto",}}
             />
           </div>
         </div>
       </div>
-      <div className="container-adopinfo px-4 py-2" id="featured-3">
-        <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div className="container-adopinfo px-2 py-2" id="featured-3">
+        <div className="row g-2 py-2 row-cols-1 row-cols-lg-3">
           <div className="feature col">
             <div className="feature-card">
               <div className="feature-icon d-flex align-items-center justify-content-center text-bg bg-gradient fs-2 mb-3">
-                <img src={Dog} className="Person"></img>
+                <img src={iconLogo} className="Person"></img>
               </div>
               <h3 className="fs-2 text-body-emphasis text-center">
                 Reflexiona sobre tu Estilo de Vida
@@ -60,7 +57,7 @@ const Adopcion = () => {
           <div className="feature col">
             <div className="feature-card">
               <div className="feature-icon d-flex align-items-center justify-content-center text-bg bg-gradient fs-2 mb-3">
-                <img src={Cat} className="Person"></img>
+                <img src={iconLogo} className="Person"></img>
               </div>
               <h3 className="fs-2 text-body-emphasis text-center">
                 Elije la Mascota Adecuada
@@ -77,7 +74,7 @@ const Adopcion = () => {
           <div className="feature col">
             <div className="feature-card">
               <div className="feature-icon d-flex align-items-center justify-content-center text-bg bg-gradient fs-2 mb-3">
-                <img src={Dog} className="Person"></img>
+                <img src={iconLogo} className="Person"></img>
               </div>
               <h3 className="fs-2 text-body-emphasis text-center">
                 Haz espacio en tu Hogar
@@ -92,7 +89,7 @@ const Adopcion = () => {
           <div className="feature col">
             <div className="feature-card">
               <div className="feature-icon d-flex align-items-center justify-content-center text-bg bg-gradient fs-2 mb-3">
-                <img src={Cat} className="Person"></img>
+                <img src={iconLogo} className="Person"></img>
               </div>
               <h3 className="fs-2 text-body-emphasis text-center">
                 Educación y Entrenamiento
@@ -107,7 +104,7 @@ const Adopcion = () => {
           <div className="feature col">
             <div className="feature-card">
               <div className="feature-icon d-flex align-items-center justify-content-center text-bg bg-gradient fs-2 mb-3">
-                <img src={Dog} className="Person"></img>
+                <img src={iconLogo} className="Person"></img>
               </div>
               <h3 className="fs-2 text-body-emphasis text-center">
                 Atención Médica
@@ -122,7 +119,7 @@ const Adopcion = () => {
           <div className="feature col">
             <div className="feature-card">
               <div className="feature-icon d-flex align-items-center justify-content-center text-bg bg-gradient fs-2 mb-3">
-                <img src={Cat} className="Person"></img>
+                <img src={iconLogo} className="Person"></img>
               </div>
               <h3 className="fs-2 text-body-emphasis text-center">
                 Alimentación Adecuada
@@ -136,7 +133,7 @@ const Adopcion = () => {
           <div className="feature col">
             <div className="feature-card">
               <div className="feature-icon d-flex align-items-center justify-content-center text-bg bg-gradient fs-2 mb-3">
-                <img src={Dog} className="Person"></img>
+                <img src={iconLogo} className="Person"></img>
               </div>
               <h3 className="fs-2 text-body-emphasis text-center">
                 Identificación
@@ -151,7 +148,7 @@ const Adopcion = () => {
           <div className="feature col">
             <div className="feature-card">
               <div className="feature-icon d-flex align-items-center justify-content-center text-bg bg-gradient fs-2 mb-3">
-                <img src={Cat} className="Person"></img>
+                <img src={iconLogo} className="Person"></img>
               </div>
               <h3 className="fs-2 text-body-emphasis text-center">
                 Compañía y Amor
@@ -165,7 +162,7 @@ const Adopcion = () => {
           <div className="feature col">
             <div className="feature-card">
               <div className="feature-icon d-flex align-items-center justify-content-center text-bg bg-gradient fs-2 mb-3">
-                <img src={Dog} className="Person"></img>
+                <img src={iconLogo} className="Person"></img>
               </div>
               <h3 className="fs-2 text-body-emphasis text-center">
                 Planifica a Futuro

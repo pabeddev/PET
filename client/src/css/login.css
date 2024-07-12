@@ -1,6 +1,7 @@
 .login-container{
   display: flex;
   width: 100%;
+  height: 720px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -8,8 +9,8 @@
 }
 
 .imgFromLog{
-  width: 500px;
-  height: auto;
+  width: 90%;
+  height: 720px;
 }
 
 .logo-section{
@@ -53,11 +54,11 @@
   justify-content: center;
   background-color: white;
   padding: 20px;
-  width: 1030px;
+  width: 100%;
 }
 
 .form-group{
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .form-group label {
@@ -94,10 +95,15 @@
   .login-container{
     flex-direction: column;
     align-items: center;
-    height: auto;
+    height: 530px;
   }
   .imgFromLog{
-    width: 400px;
-    height: 130px;
+    width: 0px;
+    height: 0px;
+  }
+  
+  .form-section-log{
+    max-height: fit-content;
+    
   }
 }

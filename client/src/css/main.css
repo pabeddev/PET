@@ -24,13 +24,10 @@ body, html {
 }
 
 .main-content h1 {
-  font-size: 3em;
+  font-size: 4em;
   margin-bottom: 20px;
-}
-
-.main-content p {
-  font-size: 1.2em;
-  text-align: center;
+  font-family: "Oswald", sans-serif;
+  color: black;
 }
 
 .main-content button {
@@ -45,10 +42,10 @@ body, html {
 }
 
 .main-content button:hover{
-  background-color: rgb(64, 64, 64);
+  background-color: rgb(39, 39, 39);
 }
 .main-content img.main-image {
-  width: 69%;
+  max-width: 69%;
   height: auto;
   border-radius: 10px;
   align-self: flex-start;
@@ -56,8 +53,9 @@ body, html {
 }
 
 .main-title-font{
+  padding-top: 10px;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: bolder;
 
 }
 .info-sections {
@@ -98,6 +96,7 @@ body, html {
   .container-main {
     flex-direction: column;
     height: auto; 
+    padding-bottom: 50px;
 
   }
 
@@ -105,11 +104,12 @@ body, html {
   .info-sections {
     width: 100%;
     padding: 0px; 
-    text-align: center; 
+    text-align: center;
+ 
   }
 
   .main-content h1 {
-    font-size: 2em; 
+    font-size: 3em; 
     margin-bottom: 10px;
   }
 
@@ -129,6 +129,6 @@ body, html {
   }
 
   .info-section img {
-    max-width: 30%; 
+    max-width: 50%; 
   }
 }

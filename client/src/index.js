@@ -12,4 +12,5 @@ ReactDOM.render(
     </BrowserRouter>
   </Initializer>,
   document.getElementById("root")
+  
 );

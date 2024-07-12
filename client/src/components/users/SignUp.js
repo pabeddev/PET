@@ -63,8 +63,6 @@ const Signup = () => {
 
     const response = await createAccount(newUser);
 
-    console.log(response)
-
     if (response.error) {
 
       setError(response.error);
@@ -116,7 +114,8 @@ const Signup = () => {
                 type="text"
                 id="textName"
                 name="name"
-                placeholder="Nombre"
+                placeholder="Introduce tu nombre"
+                className="form-control"
                 required
                 value={newUser.name}
                 onChange={evt => setNewUser({ ...newUser, name: evt.target.value })}
@@ -131,7 +130,8 @@ const Signup = () => {
                 type="text"
                 id="lastname"
                 name="lastname"
-                placeholder="Apellidos"
+                placeholder="Introduce tus apellidos"
+                className="form-control"
                 required
                 value={newUser.lastname}
                 onChange={evt => setNewUser({ ...newUser, lastname: evt.target.value })}
@@ -147,13 +147,13 @@ const Signup = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Correo Electrónico"
+                placeholder="Introduce tu correo electronico"
+                className="form-control"
                 required
                 value={newUser.email}
                 onChange={evt => setNewUser({ ...newUser, email: evt.target.value })}
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="password">
                 Contraseña:
@@ -162,7 +162,8 @@ const Signup = () => {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="Contraseña"
+                placeholder="*Cree una contraseña"
+                className="form-control"
                 required
                 value={newUser.password}
                 onChange={evt => setNewUser({ ...newUser, password: evt.target.value })}
@@ -177,7 +178,8 @@ const Signup = () => {
               type="tel"
               id="phone_number"
               name="phone_number"
-              placeholder="Numero de teléfono"
+              placeholder="Introduce tu telefono"
+              className="form-control"
               required
               value={newUser.phone_number}
               onChange={evt => setNewUser({ ...newUser, phone_number: evt.target.value })}
