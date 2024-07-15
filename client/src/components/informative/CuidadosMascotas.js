@@ -1,6 +1,6 @@
 import "../../css/cuidados.css";
-import Cuidados from "../../imagenes/recomendaciones.png";
-import ShieldDog from "../../icons/shield-dog.svg";
+import Cuidados from "../../imagenes/info-cuidados.png";
+import iconPET from "../../imagenes/Logo.png"
 
 const CuidadosMascotas = () => {
   return (
@@ -13,7 +13,7 @@ const CuidadosMascotas = () => {
           <div className="d-flex gap-3 justify-content-center lead fw-normal"></div>
         </div>
       </div>
-      <div className="container-cuidados my-1 pet-cuidados">
+      <div className="container my-1 pet-cuidados">
         <div className="row p-3 pb-0 pe-lg-0 pt-lg-0 align-items-center rounded-3 border shadow-lg">
           <div className="col-lg-7 p-3 p-lg-5 pt-lg-3 text-cuidados">
             <h1 className="display-4 fw-bold lh-1 text-white">
@@ -31,7 +31,7 @@ const CuidadosMascotas = () => {
               src={Cuidados}
               className="InfoPet"
               alt="Logo"
-              style={{ maxWidth: "100%", height: "auto" }}
+              style={{ maxWidth: "550px", height: "auto" }}
             />
           </div>
         </div>
@@ -39,7 +39,7 @@ const CuidadosMascotas = () => {
       <div className="container-cuidarinfo px-4 py-2" id="icon-grid">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
           <div className="col d-flex align-items-start">
-            <img src={ShieldDog} className="Person"></img>
+            <img src={iconPET} className="Person"></img>
             <div className="custom-content">
               <h3 className="fw-bold mb-0 fs-4 text-body-emphasis align-items-center">
                 Collar con Placa
@@ -53,7 +53,7 @@ const CuidadosMascotas = () => {
             </div>
           </div>
           <div className="col d-flex align-items-start">
-            <img src={ShieldDog} className="Person"></img>
+            <img src={iconPET} className="Person"></img>
             <div className="custom-content">
               <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
                 Supervisión Constante
@@ -66,7 +66,7 @@ const CuidadosMascotas = () => {
             </div>
           </div>
           <div className="col d-flex align-items-start">
-            <img src={ShieldDog} className="Person"></img>
+            <img src={iconPET} className="Person"></img>
             <div className="custom-content">
               <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
                 Respuesta a su Nombre
@@ -79,7 +79,7 @@ const CuidadosMascotas = () => {
             </div>
           </div>
           <div className="col d-flex align-items-start">
-            <img src={ShieldDog} className="Person"></img>
+            <img src={iconPET} className="Person"></img>
             <div className="custom-content">
               <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
                 Paseos con Correa
@@ -93,7 +93,7 @@ const CuidadosMascotas = () => {
             </div>
           </div>
           <div className="col d-flex align-items-start">
-            <img src={ShieldDog} className="Person"></img>
+            <img src={iconPET} className="Person"></img>
             <div className="custom-content">
               <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
                 Fotos Actuales
@@ -106,7 +106,7 @@ const CuidadosMascotas = () => {
             </div>
           </div>
           <div className="col d-flex align-items-start">
-            <img src={ShieldDog} className="Person"></img>
+            <img src={iconPET} className="Person"></img>
             <div className="custom-content">
               <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
                 Entrenamiento de Regreso
@@ -118,7 +118,7 @@ const CuidadosMascotas = () => {
             </div>
           </div>
           <div className="col d-flex align-items-start">
-            <img src={ShieldDog} className="Person"></img>
+            <img src={iconPET} className="Person"></img>
             <div className="custom-content">
               <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
                 Protección Segura
@@ -132,7 +132,7 @@ const CuidadosMascotas = () => {
             </div>
           </div>
           <div className="col d-flex align-items-start">
-            <img src={ShieldDog} className="Person"></img>
+            <img src={iconPET} className="Person"></img>
             <div className="custom-content">
               <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
                 Educación sobre Mascotas

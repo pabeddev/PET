@@ -1,13 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router";
 import { authUserStore } from "../../context/globalContext";
-import UserList from "./UserList";
+import UserList from "./userList";
 // Obtener usuarios y colaboradores
 import { obtenerUsuarios } from "../../api/administradores";
 import { obtenerUsuariosColaboradores } from "../../api/administradores";
-import UserCollaboratorList from "./UserCollaboratorList";
+import UserCollaboratorList from "./userCollaboratorList";
 
-import UserDetails from "./UserDetails"
+import UserDetails from "./userDetails"
 
 const AdminDashboard = () => {
   const navigate = useNavigate();

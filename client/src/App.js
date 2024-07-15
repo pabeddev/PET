@@ -66,6 +66,7 @@ const App = () => {
             {/* Rutas para el usuario */}
             <Route path={usersRoutes.login} element={<Login />} />
             <Route path={usersRoutes.signUp} element={<SignUp />} />
+            
             <Route
               path={usersRoutes.userPetPost}
               element={<RouteProtect><ReportarMascotas/></RouteProtect>}
@@ -82,16 +83,16 @@ const App = () => {
             {/* Rutas privadas */}
 
             {/* Rutas de informacion */}
-            <Route path="/Mascotas-Perdidas" element={<MascotasPerdidas />} />
-            <Route path="/Adopcion-Responsable" element={<Adopcion />} />
-            <Route path="/Cuidados-Mascotas" element={<CuidadosMascotas />} />
+            <Route path={usersRoutes.userPetGet} element={<MascotasPerdidas />} />
+            <Route path={usersRoutes.userPetAdoption} element={<Adopcion />} />
+            <Route path={usersRoutes.userPetCare} element={<CuidadosMascotas />} />
             <Route
-              path="/Importancia-Mascotas"
+              path={usersRoutes.userPetImportance}
               element={<ImportanciaMascotas />}
             />
             <Route path="/Rescatista-Form" element={<RescueForm />} />
 
-            <Route path="/Como-Reporto" element={<ComoReporto />} />
+            <Route path={usersRoutes.userHowReport} element={<ComoReporto />} />
             <Route path="/Perfil-Asociado" element={<RescueAccount />} />
             <Route path="/Panel-Rescatistas" element={<SociosPanel />} />
 

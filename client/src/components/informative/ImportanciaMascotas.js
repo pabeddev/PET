@@ -1,7 +1,5 @@
 import "../../css/importancia.css";
-import Importancia from "../../imagenes/mascota-importancia.jpg";
-
-import Footer from "../Footer";
+import Importancia from "../../imagenes/info-importancia.jpg";
 
 const ImportanciaMascotas = () => {
   return (
@@ -14,8 +12,8 @@ const ImportanciaMascotas = () => {
           <div className="d-flex gap-3 justify-content-center lead fw-normal"></div>
         </div>
       </div>
-      <div className="container-pm my-1 pet-importancia">
-        <div className="row p-1 pb-0 pe-lg-0 pt-lg-0 align-items-center rounded-3 border shadow-lg">
+      <div className="container my-0 pet-importancia">
+        <div className="row p-1 pb-0 pe-lg-0 pt-lg-0 align-items-center rounded-3 shadow-lg">
           <div className="col-lg-7 p-3 p-lg-5 pt-lg-3 text-cuidados">
             <h1 className="display-4 fw-bold lh-1 text-white">
               Descubre la Magia de Tener una Mascota
@@ -33,7 +31,7 @@ const ImportanciaMascotas = () => {
               src={Importancia}
               className="InfoPet"
               alt="Logo"
-              style={{ maxWidth: "100%", height: "auto" }}
+              style={{ maxWidth: "550px", height: "auto" }}
             />
           </div>
         </div>
@@ -130,7 +128,7 @@ const ImportanciaMascotas = () => {
           </div>
         </div>
       </div>
-      <div className="p-3 mb-2 bg-transparent text-body"></div>
+      <div class="p-3 mb-2 bg-transparent text-body"></div>
     </div>
   );
 };
