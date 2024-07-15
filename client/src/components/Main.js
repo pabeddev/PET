@@ -11,33 +11,37 @@ const Main = () => {
   return (
     <div className="container-main">
       <div className="main-content">
-        <h1 className="main-title-font">Perdidos En Tapachula</h1>
-        <Link to={usersRoutes.signUp}>
-          <button>Regístrate</button>
-        </Link>
+        <div className="main-title">
+          <h1 className="main-title-font">Perdidos En Tapachula</h1>
+        </div>
+        <div className="main-link">
+          <Link className="" to={usersRoutes.signUp}>
+            Regístrate
+          </Link>
+        </div>
+        <div className="main-image-container">
           <img src={M01} alt="Dog and Cat" className="main-image" />
+        </div>
       </div>
       <div className="info-sections">
         <div className="info-section section1">
           <Link to={usersRoutes.userPetAdoption}>
-            <img src={M1} alt="Icon 1" />  
+            <img src={M1} alt="Icon 1" className="icon" />
           </Link>
-        </div> 
+        </div>
         <div className="info-section section2">
           <Link to={usersRoutes.userPetImportance}>
-            <img src={M2} alt="Icon 2" />
+            <img src={M2} alt="Icon 2" className="icon" />
           </Link>
         </div>
         <div className="info-section section3">
           <Link to={usersRoutes.userPetCare}>
-            <img src={M3} alt="Icon 3" />
+            <img src={M3} alt="Icon 3" className="icon" />
           </Link>
         </div>
       </div>
-      <div>
-      </div>
+      <div></div>
     </div>
-    
   );
 };
 
