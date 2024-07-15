@@ -2,7 +2,7 @@ import { axiosInstance } from "../utilities/axiosInstance";
 
 
 export const obtenerMascotas = async () => {
-    const data = await axiosInstance.get("/api/v3/posts/");
+    const data = await axiosInstance.get("/posts/");
     console.log(data.data);
     return data.data;
 }
@@ -18,7 +18,7 @@ export const createPost = async (formData, token) => {
     };
 
     try { 
-        const data = await axiosInstance.postForm('/api/v3/users/posts', formData, config);
+        const data = await axiosInstance.postForm('/users/posts', formData, config);
         console.log(data);
         return data.data;
     }catch (error) {
@@ -35,7 +35,7 @@ export const createPost = async (formData, token) => {
 
 export const getPet = async (idPet) => {
     try {
-        const response = await axiosInstance.get(`/api/v2/guests/publications/search?pet=${idPet}`);
+        const response = await axiosInstance.get(`/guests/publications/search?pet=${idPet}`);
         return response.data;
     }catch(error) {
         console.log(error);
@@ -55,7 +55,7 @@ export const addComment = async (idPet, data, token) => {
     }
 
     try{
-        const response = await axiosInstance.post(`api/v2/posts/comment?pet=${idPet}`, data, config);
+        const response = await axiosInstance.post(`/posts/comment?pet=${idPet}`, data, config);
 
         return response.data;
 

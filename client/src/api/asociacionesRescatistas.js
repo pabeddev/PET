@@ -2,7 +2,7 @@ import { axiosInstance } from "../utilities/axiosInstance"
 
 export const createAssociationRescuers = async (data) => {
     try {
-        const response = await axiosInstance.post('/api/v2/collabs/', data);
+        const response = await axiosInstance.post('/collabs/', data);
         return response;
     } catch (error) {
         console.log("error");
@@ -21,7 +21,7 @@ export const createBulletin = async (data, token) => {
             }
         }
 
-        const response = await axiosInstance.post('/api/v2/bulletins/', data, config);
+        const response = await axiosInstance.post('/bulletins/', data, config);
 
         return response.data;
 

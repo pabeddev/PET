@@ -2,7 +2,7 @@ import { axiosInstance } from "../utilities/axiosInstance";
 
 export const createAccount = async (data) => {
   try {
-    const response = await axiosInstance.post("/api/v3/users/", data);
+    const response = await axiosInstance.post("/users/", data);
     return response;
   } catch (error) {
     console.log("error", error.response);
@@ -17,7 +17,7 @@ export const createAccount = async (data) => {
 
 export const loginUser = async (data) => {
   try {
-    const response = await axiosInstance.post("/api/v3/auth/login/", data);
+    const response = await axiosInstance.post("/auth/login/", data);
     console.log(response);
     return response;
   } catch (error) {
@@ -40,7 +40,7 @@ export const getPetsUser = async (token) => {
   };
 
   try {
-    const response = await axiosInstance.get("/api/v3/users/posts/", config);
+    const response = await axiosInstance.get("/users/posts/", config);
     return response;
   } catch (error) {
     console.log(error);
@@ -56,10 +56,11 @@ export const validateAuth = async (token) => {
   };
 
   try {
-    const response = await axiosInstance.get("/api/v3/auth/token/status/", config);
+    const response = await axiosInstance.get("/auth/token/status/", config);
     return response;
   } catch (error) {
     console.log(error);
     throw error;
   }
 };
+
