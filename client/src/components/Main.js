@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../css/main.css";
+import "../css/Main.css";
 import M01 from "../imagenes/main01-p.png";
 import M1 from "../imagenes/icon-m1.png";
 import M2 from "../imagenes/icon-m2.png";
@@ -9,7 +9,7 @@ import { usersRoutes } from "routes/routes";
 
 const Main = () => {
   return (
-    <div className="container-main">
+    <div className="container-main-index">
       <div className="main-content">
         <div className="main-title">
           <h1 className="main-title-font">Perdidos En Tapachula</h1>
@@ -40,7 +40,6 @@ const Main = () => {
           </Link>
         </div>
       </div>
-      <div></div>
     </div>
   );
 };
