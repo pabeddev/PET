@@ -1,3 +1,4 @@
 Write-Host "Proyecto de desarrollo PET"
-start powershell {..\dev\windows-client-start.ps1}
-start powershell {..\dev\windows-server-start.ps1}
+Start-Process powershell {..\dev\windows-server-start.ps1} 
+Start-Sleep -s 5
+Start-Process powershell {..\dev\windows-client-start.ps1}

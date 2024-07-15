@@ -6,7 +6,6 @@ services:
     volumes:
       - .:/home/node/app
       - /home/node/app/node_modules
-    restart: always
     command: npm run dev
     ports:
       - "3030:3030"
