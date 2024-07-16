@@ -9,6 +9,7 @@ import { createAccount } from "../../api/users";
 import "../../css/SignUp.css";
 
 import { toastData } from "context/globalContext";
+import { IoEyeSharp, IoEyeOffSharp } from "react-icons/io5";
 
 // Expresiones regulares
 const nameRegExp = /^[a-zA-Z\s]*$/;
@@ -19,6 +20,7 @@ const isNumber = /^[0-9]*$/;
 const Signup = () => {
   const navigate = useNavigate();
   const { toastSuccess, toastError } = toastData();
+  const [showPassword, setShowPassword] = useState(false);
   const [newUser, setNewUser] = useState({
     name: "",
     lastname: "",
@@ -58,9 +60,7 @@ const Signup = () => {
       await createAccount(newUser);
       toastSuccess("Usuario registrado correctamente");
       navigate("/user/login");
-      
     } catch (error) {
-
       if (error.response.status === 400) {
         toastError("El correo electrónico ya está registrado");
         setLoading(false);
@@ -71,7 +71,6 @@ const Signup = () => {
         setLoading(false);
         return;
       }
-
     }
   };
 
@@ -140,7 +139,7 @@ const Signup = () => {
             <div className="form-group">
               <label htmlFor="password">Contraseña:</label>
               <input
-                type="password"
+                type={showPassword ? "password" : "text"}
                 id="password"
                 name="password"
                 placeholder="Contraseña"
@@ -151,6 +150,23 @@ const Signup = () => {
                   setNewUser({ ...newUser, password: evt.target.value })
                 }
               />
+              {showPassword ? (
+                <IoEyeOffSharp
+                  className="icon-show-password"
+                  onClick={(evt) => {
+                    evt.preventDefault();
+                    setShowPassword(!showPassword);
+                  }}
+                />
+              ) : (
+                <IoEyeSharp
+                  className="icon-show-password"
+                  onClick={(evt) => {
+                    evt.preventDefault();
+                    setShowPassword(!showPassword);
+                  }}
+                />
+              )}
             </div>
           </div>
           <div className="form-group">
