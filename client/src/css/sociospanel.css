@@ -1,9 +1,17 @@
-/* sociospanel.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos para sección hero */
 .hero-section {
   background-color: #154744;
   background-size: cover;
   background-position: center;
-  padding-top: 40px;
+  padding-top: 0px; /* Aumentamos el espacio en dispositivos móviles */
+  padding-bottom: 0px; /* Aumentamos el espacio en dispositivos móviles */
   color: #ffffff;
   text-align: center;
   margin-bottom: 2rem;
@@ -25,44 +33,23 @@
 }
 
 .btn-sp {
-  padding: 20px; 
+  padding: 12px; /* Reducimos el padding en dispositivos móviles */
   font-size: 1rem;
   background-color: #a7c1c0;
-  color: #000000; 
+  color: #000000;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border-radius: 10px; 
-  width: 150px; 
-  height: 50px; 
+  border-radius: 10px;
+  width: 150px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .btn-sp:hover {
-  background-color: #85a09e; 
-}
-
-.form-section {
-  background-color: #f8f9fa;
-  padding: 2rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-}
-
-.form-container-rf {
-  background: #fff;
-  padding: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  width: 100%;
-  max-width: 1200px; /* or any other max width you prefer */
-  margin: 0 auto;
-  transition: opacity 0.5s ease;
+  background-color: #85a09e;
 }
 
 .form-rf {
@@ -80,15 +67,6 @@
 
 .form-group-rf label {
   margin-bottom: 0.5rem;
-}
-
-.form-rf input,
-.form-rf textarea {
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
 }
 
 .form-rf textarea {
@@ -125,21 +103,40 @@
   text-align: center;
 }
 
+/* Media queries para dispositivos móviles */
 @media (max-width: 768px) {
   .hero-title {
-      font-size: 2.5rem;
+    font-size: 2.5rem;
   }
 
   .hero-subtitle {
-      font-size: 1.25rem;
+    font-size: 1.25rem;
   }
 
-  .btn {
-      padding: 0.75rem 1.5rem;
-      font-size: 0.9rem;
+  .btn-sp {
+    padding: 10px; 
+    font-size: 0.9rem;
+    width: 120px; 
+    height: 40px;
   }
 
-  .form {
-      padding: 0 1rem;
+
+  .form-container-rf {
+    max-width: 100%;
+    border-radius: 0; 
+    box-shadow: none; 
+    padding: 0rem; 
+  }
+  .form-rf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group-rf {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
   }
 }
