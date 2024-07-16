@@ -10,7 +10,7 @@ export const obtenerUsuarios = async (token) => {
     }
 
     try{
-        const response = await axiosInstance.get('/api/v2/admins/users/', config)
+        const response = await axiosInstance.get('/admins/users/', config)
         console.log(response);
         return response.data
     }catch(error) {
@@ -26,7 +26,7 @@ export const obtenerUsuariosColaboradores = async (token) => {
     }
 
     try{
-        const responseCll = await axiosInstance.get('/api/v2/admins/collabs/', config)
+        const responseCll = await axiosInstance.get('/admins/collabs/', config)
         console.log(responseCll);
         return responseCll.data
     }catch(error) {
@@ -42,7 +42,7 @@ export const peticionesColaborador = async (token) => {
     }
 
     try{
-        const responseRq = await axiosInstance.get('/api/v2/admins/requests/', config)
+        const responseRq = await axiosInstance.get('/admins/requests/', config)
         console.log(responseRq);
         return responseRq.data
     }catch(error) {
@@ -59,7 +59,7 @@ export const eliminarUsuario = async (token, deleteId) => {
     }
 
     try{
-        const responseDlt = await axiosInstance.delete(`/api/v2/admins/users/${deleteId}`,config)
+        const responseDlt = await axiosInstance.delete(`/admins/users/${deleteId}`,config)
         console.log(responseDlt);
         return responseDlt.data
     }catch(error) {
@@ -75,7 +75,7 @@ export const eliminarUsuarioColaborador = async (token, deleteId) => {
     }
 
     try{
-        const responseDlt = await axiosInstance.delete(`/api/v2/admins/collabs/${deleteId}`, config)
+        const responseDlt = await axiosInstance.delete(`/admins/collabs/${deleteId}`, config)
         console.log(responseDlt);
         return responseDlt.data
     }catch(error) {
@@ -92,7 +92,7 @@ export const aceptarPeticion = async (token, postId) => {
     }
 
     try{
-        const reponseAcp = await axiosInstance.post(`api/v2/admins/requests/${postId}?action=activate` , null, config)
+        const reponseAcp = await axiosInstance.post(`/admins/requests/${postId}?action=activate` , null, config)
         console.log(reponseAcp);
         return reponseAcp.data
     }catch(error) {
@@ -109,7 +109,7 @@ export const rechazarPeticion = async (token, postId) => {
     }
 
     try{
-        const reponseRjt = await axiosInstance.post(`api/v2/admins/requests/${postId}?action=reject` , null, config)
+        const reponseRjt = await axiosInstance.post(`/admins/requests/${postId}?action=reject` , null, config)
         console.log(reponseRjt);
         return reponseRjt.data
     }catch(error) {

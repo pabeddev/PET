@@ -48,7 +48,6 @@ const MascotasPerdidas = () => {
           </div>
         )}
       </div>
-      <Footer />
     </>
 
   );

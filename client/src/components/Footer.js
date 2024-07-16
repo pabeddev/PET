@@ -1,13 +1,12 @@
-import '../css/footer.css';
+import "../css/footer.css";
 
 const Footer = () => {
-
   return (
-    <div className="footer-container">
-      <footer className="footer">
+    <footer className="footer">
+      <div className="footer-company">
         <p>Desarrollado por PABED 2024.</p>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 

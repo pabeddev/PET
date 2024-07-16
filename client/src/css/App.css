@@ -1,0 +1,11 @@
+.container-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+} 
+
+.container-main {
+    margin-bottom: 72px;
+}

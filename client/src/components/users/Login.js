@@ -5,153 +5,152 @@ import { loginUser } from "../../api/users";
 import { authUserStore } from "../../context/globalContext";
 import { saveDataLocalStorage } from "../../localstorage/sesionLocalStorage";
 import Loginimg from "../../imagenes/login.jpg";
-import logoPet from "../../imagenes/Logo.png"
-import '../../css/login.css'
+import logoPet from "../../imagenes/Logo.png";
+import "../../css/login.css";
+
+import { toastData } from "../../context/globalContext";
 
 import jwtDecode from "jwt-decode";
 
 const Login = () => {
-
+  
+  const { toastError } = toastData();
   const navigate = useNavigate();
 
+  // Estado de autenticacion
   const { login, isAuthenticated } = authUserStore();
 
+  // Estado de los datos del usuario
   const [dataUserLogin, setDataUserLogin] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
 
-  const [error, setError] = useState("");
+  // Estado de carga
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/');
+      navigate("/");
       return;
     }
   }, [isAuthenticated]);
 
+  const handleLogin = async (evt) => {
+    // Prevencion de formulario por defecto
+    evt.preventDefault();
 
-  const handleLogin = async () => {
-
+    // Estado de carga para el boton de carga
     setIsLoading(true);
 
-    if (dataUserLogin.password.trim() === "" || dataUserLogin.password.trim() === "") {
+    // Validacion de campos vacios
+    if (
+      dataUserLogin.password.trim() === "" ||
+      dataUserLogin.password.trim() === ""
+    ) {
       setIsLoading(false);
-      setError("Correo y contraseña son necesarios!!");
-      setTimeout(() => {
-        setError("");
-      }, 3000);
+      toastError("Correo y contraseña son necesarios!!");
       return;
     }
 
-    const response = await loginUser(dataUserLogin);
+    try {
+      // Manejar las variables de respuesta como response o data
+      const response = await loginUser(dataUserLogin);
 
-    if (response.error) {
+      // Decodificar el token
+      const dataToken = await jwtDecode(response.data.token);
 
+      // Guardar los datos en el estado global
+      login({
+        email: dataUserLogin.email,
+        dataToken: response.data,
+        role: dataToken.role,
+      });
+
+      // Guardar los datos en local storage
+      saveDataLocalStorage({
+        email: dataUserLogin.email,
+        dataToken: response.data,
+        role: dataToken.role,
+      });
+
+      // Limpiar los campos
+      setDataUserLogin({ email: "", password: "" });
+
+      // Cambiar el estado de carga
       setIsLoading(false);
 
-      setError(response.error);
+      // Redireccionar a la pagina principal
+      navigate("/");
 
-      setTimeout(() => {
-        setError("");
-      }, 3000);
-
-      return;
+    } catch (error) {
+      // Validar si el error es de formato de correo
+      if (error.response.status === 400) {
+        setIsLoading(false);
+        toastError("Ingresa un formato de correo válido");
+        return;
+      }
+      // Validar si el error es de correo o contraseña incorrectos
+      if (error.response.status === 401 || error.response.status === 404) {
+        setIsLoading(false);
+        toastError("Correo o contraseña incorrectos");
+        return;
+      }
     }
-
-    // Decodificar el token
-    const dataToken = await jwtDecode(response.data.token);
-
-    // Objeto que guarda los datos de la sesion
-    const dataSesion = {
-      email: dataUserLogin.email,
-      dataToken: response.data,
-      role: dataToken.role
-    }
-
-    // Guardar los datos en el estado global
-    login(dataSesion);
-
-    // Guardar los datos en local storage
-    saveDataLocalStorage(dataSesion);
-
-    setDataUserLogin({ email: "", password: "" });
-    setIsLoading(false);
-    navigate('/');
-
-    return;
   };
 
   return (
     <div className="login-container">
       <div className="imgFromLog">
-        <img src={Loginimg} alt="Imagen del formulario" className="imgFromLog" />
+        <img
+          src={Loginimg}
+          alt="Imagen del formulario"
+          className="imgFromLog"
+        />
       </div>
 
-      <div className="form-section-log"> 
+      <form className="form-section-log" onSubmit={handleLogin}>
         <div className="logo-section">
           <img src={logoPet} alt="logo pet" className="logoPet"></img>
           <h2>Iniciar sesión</h2>
           <h6 className="welcome-title">Bienvenido!</h6>
         </div>
-        {
-
-          error !== "" ? (
-            <div>
-              {error}
-            </div>
-
-          ) : (
-            <div></div>
-          )
-        }
-
         <div className="form-group">
-          <label htmlFor="email">Ingrese su email:</label>
+          <label htmlFor="email">Correo Electrónico</label>
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="@Ingresa el email"
+            placeholder="Correo Electrónico"
             className="form-control"
             required
             value={dataUserLogin.email}
-            onChange={evt => setDataUserLogin({ ...dataUserLogin, email: evt.target.value })}
+            onChange={(evt) =>
+              setDataUserLogin({ ...dataUserLogin, email: evt.target.value })
+            }
           />
         </div>
+        {/* TODO: Agregar funcionalidad de ver contrasena */}
         <div className="form-group">
-          <label htmlFor="password">Ingrese su contraseña:</label>
+          <label htmlFor="password">Contraseña</label>
           <input
             type="password"
             id="password"
             name="password"
-            placeholder="*Introduce tu contraseña"
+            placeholder="Contraseña"
             className="form-control"
             required
             value={dataUserLogin.password}
-            onChange={evt => setDataUserLogin({ ...dataUserLogin, password: evt.target.value })}
+            onChange={(evt) =>
+              setDataUserLogin({ ...dataUserLogin, password: evt.target.value })
+            }
           />
         </div>
 
-        <button
-          type="submit"
-          onClick={handleLogin}
-          className="buttonLog"
-        >
-          {
-            !isLoading ? (
-              "Iniciar Sesión"
-            ) :
-              (
-                <CSpinner color="primary" />
-              )
-          }
-
+        <button type="submit" className="buttonLog">
+          {!isLoading ? "Iniciar Sesión" : <CSpinner color="primary" />}
         </button>
-
-      </div>
-
+      </form>
     </div>
   );
 };

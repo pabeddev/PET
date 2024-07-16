@@ -16,7 +16,7 @@ const CardPet = ({ pet }) => {
         <div className="card-group">
             <div className="card">
                 <img
-                    src={pet.identify.image.url}
+                    src={pet.identify?.image?.url || "https://via.placeholder.com/150"}
                     className="card-img-top"
                     alt={pet.name}
                 />

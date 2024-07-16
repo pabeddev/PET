@@ -1,10 +1,20 @@
-Write-Host "Cliente de desarrollo PET"
-Write-Host "Iniciando cliente de desarrollo..."
-if (-not (Test-Path -Path "../client/node_modules")) {
-  Write-Host "Instalando dependencias..."
-  npm install
-}else{
-  Write-Host "Dependencias ya instaladas"
+Write-Host "Iniciando cliente de desarrollo PET..."
+cd ..\client
+
+if (Test-Path .\node_modules) {
+    Write-Host "Node modules encontrados, iniciando cliente..."
+} else {
+    Write-Host "Node modules no encontrados, instalando dependencias..."
+    npm install
 }
-cd ../client
+
+# Verificar si el archivo .env existe
+if (Test-Path .\.env) {
+    Write-Host "Archivo .env encontrado..."
+} else {
+    Write-Host "Archivo .env no encontrado, creando archivo .env..."
+    Copy-Item .\example.env .\.env
+}
+
+Write-Host "Iniciando cliente..."
 npm run start
