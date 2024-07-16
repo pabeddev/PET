@@ -33,10 +33,14 @@ import { loaderData } from "context/globalContext";
 import { usersRoutes, indexRoutes, devRoutes } from "routes/routes";
 import RouteProtect from "routes/RouteProtect/RouteProtect";
 
+import { toastData } from "context/globalContext";
+
 const App = () => {
   const { loadingData } = loaderData();
+  const { toaster } = toastData();
   return (
     <>
+      {toaster}
       {loadingData ? (
         <div>Loading...</div>
       ) : (

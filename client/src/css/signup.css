@@ -20,10 +20,8 @@
 
 
 .img-container{
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  width: auto;
 }
 
 .form-group{

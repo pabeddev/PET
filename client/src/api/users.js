@@ -1,18 +1,7 @@
 import { axiosInstance } from "../utilities/axiosInstance";
 
 export const createAccount = async (data) => {
-  try {
-    const response = await axiosInstance.post("/users/", data);
-    return response;
-  } catch (error) {
-    console.log("error", error.response);
-    if (error.response.status === 500 || error.response.status === 400) {
-      return {
-        error:
-          "El correo electronico que se desea registrar ya se encuentra vinculado a una cuenta",
-      };
-    }
-  }
+    return axiosInstance.post("/users/", data);
 };
 
 export const loginUser = async (data) => {
