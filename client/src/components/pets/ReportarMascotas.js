@@ -1,19 +1,33 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
 import "../../css/imagen.css";
-import "../../css/reportemascota.css";
+import "../../css/ReportarMascotas.css";
+import ImagenesMascotas from "./ImagenesMascotas";
+
 import { CSpinner } from "@coreui/react";
 import { createPost } from "../../api/pets";
 import { authUserStore } from "../../context/globalContext";
 import { useNavigate } from "react-router-dom";
-import ImagenesMascotas from "./ImagenesMascotas";
 
-const extencionesImagenes = ["png", "jpg", "jpeg"];
+import {
+  breeds,
+  genders,
+  species,
+  size,
+  extenstionsOfImages,
+} from "utilities/maps";
+
+import {
+  BiSolidRightArrowSquare,
+  BiSolidLeftArrowSquare,
+} from "react-icons/bi";
 
 const ReportarMascotas = () => {
   const navigate = useNavigate();
-  const { user, logout} = authUserStore();
-  const [error, setError] = useState("");
-  const [info, setInfo] = useState(false);
+  const { user, logout } = authUserStore();
+
+  const [page, setPage] = useState(1);
+
   const [loading, setLoading] = useState(false);
   const [showAdditionalFields, setShowAdditionalFields] = useState(false);
 
@@ -31,10 +45,9 @@ const ReportarMascotas = () => {
     lost_date: "",
     owner: false,
     image: "",
-    images:"",
-    location:""
+    images: "",
+    location: "",
   });
-
 
   const handleSubmit = async (evt) => {
     setLoading(true);
@@ -52,7 +65,7 @@ const ReportarMascotas = () => {
     formData.append("lost_date", post.lost_date);
     formData.append("owner", post.owner);
     formData.append("image", gallery[0].file);
-    formData.append("images",gallery.file)
+    formData.append("images", gallery.file);
 
     gallery.forEach((file) => {
       formData.append("gallery", file.file);
@@ -72,278 +85,163 @@ const ReportarMascotas = () => {
         navigate("/Login");
         return;
       }
-
-      setError(response.error);
-      setTimeout(() => {
-        setError("");
-      }, 3000);
       return;
     }
 
     setPost({
       name: "",
-      specie: "Perro",
-      gender: "Macho",
+      specie: "",
+      gender: "",
       age: "",
       last_seen: "",
       description: "",
       image: "",
       gallery: [],
-      size: "Chico",
-      breed: "Mestizo",
+      size: "",
+      breed: "",
       lost_date: "",
       owner: false,
-      location:""
+      location: "",
     });
 
     setGallery([]);
-    setInfo(true);
-    setTimeout(() => {
-      setInfo(false);
-    }, 5000);
     setLoading(false);
   };
 
-  const handleNext = () => {
-    setShowAdditionalFields(true);
-  };
+  const handleNext = (evt) => {
+    evt.preventDefault();
+    setPage(page + 1);
+  }
+  const handleBack = (evt) => {
+    evt.preventDefault();
+    setPage(page - 1);
+  }
 
   return (
-    <div className="container-reportar">
-      <div className="bg-reportar"></div>
-      <div className="form-container">
-        <form className="form-section-reportar" onSubmit={handleSubmit}>
-          {error && (
-            <div className="alert alert-info text-center">{error}</div>
-          )}
-
-          {info && (
-            <div className="alert alert-info text-center">
-              <h2>¡Tu mascota se ha reportado con éxito!</h2>
-            </div>
-          )}
-          {!showAdditionalFields ? (
-            <div>
-              <div className="reportar-section">
-                <h2>Datos de la mascota</h2>
-                <p className="welcome-title">¡Anímate!</p>
-              </div>
-              <div className="container-reporter">
-                <label className="input-label-reporter" htmlFor="nombre">
-                  Nombre:
-                </label>
+    <div className="container-report-pet">
+      <div className="container-image"></div>
+      <div className="container-form">
+        <h1>Reportar mascota</h1>
+        <form className="form">
+          <div className="page_1">
+            <div className="form_group_row">
+              <div className="form-control">
+                <label htmlFor="name">Nombre</label>
                 <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Nombre"
                   value={post.name}
                   onChange={(evt) =>
                     setPost({ ...post, name: evt.target.value })
                   }
-                  required
-                  type="text"
-                  className="input-reporter"
-                  placeholder="Nombre de la mascota"
-                  id="nombre"
                 />
+              </div>
+            </div>
 
-                <div className="input-group-reporter">
-                  <div className="input-item">
-                    <label className="input-label-reporter">Especie</label>
-                    <select
-                      value={post.specie}
-                      onChange={(evt) =>
-                        setPost({ ...post, specie: evt.target.value })
-                      }
-                      className="input-reporter"
-                    >
-                      <option value="Perro">Perro</option>
-                      <option value="Gato">Gato</option>
-                      <option value="Ave">Ave</option>
-                    </select>
-                  </div>
-
-                  <div className="input-item">
-                    <label className="input-label-reporter">Género</label>
-                    <select
-                      value={post.gender}
-                      onChange={(evt) =>
-                        setPost({ ...post, gender: evt.target.value })
-                      }
-                      required
-                      className="input-reporter"
-                    >
-                      <option value="Hembra">Hembra</option>
-                      <option value="Macho">Macho</option>
-                    </select>
-                  </div>
-                </div>
-
-                <label className="input-label-reporter">Raza</label>
+            <div className="form_group_row">
+              <div className="form-control">
+                <label htmlFor="specie">Especie</label>
                 <select
+                  id="specie"
+                  name="specie"
+                  value={post.specie}
+                  onChange={(evt) =>
+                    setPost({ ...post, specie: evt.target.value })
+                  }
+                >
+                  {species.map((specie) => (
+                    <option key={specie} value={specie}>
+                      {specie}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="form-control">
+                <label htmlFor="breed">Raza</label>
+                <select
+                  id="breed"
+                  name="breed"
                   value={post.breed}
                   onChange={(evt) =>
                     setPost({ ...post, breed: evt.target.value })
                   }
-                  className="input-reporter"
                 >
-                  {post.specie === "Perro" ? (
-                    <>
-                      <option>Mestizo</option>
-                      <option>Chihuahua</option>
-                      <option>Labrador Retriever</option>
-                      <option>Golden Retriever</option>
-                      <option>Beagle</option>
-                      <option>Pug</option>
-                      <option>Poodle</option>
-                      <option>Bulldog Francés</option>
-                      <option>Husky</option>
-                      <option>Pastor alemán</option>
-                      <option>Pitbull</option>
-                      <option>Pomerania</option>
-                      <option>Boxer</option>
-                      <option>Rottweiler</option>
-                      <option>Pastor belga malinois</option>
-                    </>
-                  ) : post.specie === "Gato" ? (
-                    <>
-                      <option>Persa</option>
-                      <option>Azul ruso</option>
-                      <option>Siamés</option>
-                      <option>Angora turco</option>
-                      <option>Siberiano</option>
-                      <option>Bengalí</option>
-                      <option>Mestizo</option>
-                    </>
-                  ) : (
-                    <>
-                      <option>Paloma</option>
-                      <option>Loro</option>
-                      <option>Perico</option>
-                      <option>Periquito</option>
-                      <option>Cotorra Australiana</option>
-                      <option>Canario</option>
-                      <option>Gorrion</option>
-                      <option>Pinzón</option>
-                      <option>Golondrina</option>
-                      <option>Búho</option>
-                    </>
-                  )}
+                  {breeds[post.specie].map((breed) => (
+                    <option key={breed} value={breed}>
+                      {breed}
+                    </option>
+                  ))}
                 </select>
-                <div className="input-group-reporter">
-                  <div className="input-item">
-                    <label className="input-label-reporter">Edad</label>
-                    <input
-                      value={post.age}
-                      onChange={(evt) =>
-                        setPost({ ...post, age: evt.target.value })
-                      }
-                      required
-                      type="number"
-                      min={1}
-                      className="input-reporter"
-                      placeholder="Edad"
-                    />
-                  </div>
-                  <div className="input-item">
-                    <label className="input-label-reporter">Tamaño</label>
-                    <input
-                      value={post.size}
-                      onChange={(evt) =>
-                        setPost({ ...post, size: evt.target.value })
-                      }
-                      required
-                      type="number"
-                      min={1}
-                      className="input-reporter"
-                      placeholder="Tamaño"
-                    />
-                  </div>
-                </div>
-                <div className="button-direction">
-                  <button
-                    className="buton-reporter"
-                    disabled={loading}
-                    onClick={handleNext}
-                  >
-                    {loading ? <CSpinner /> : "Siguiente"} ➡️{" "}
-                  </button>
-                </div>
               </div>
-            </div>
-          ) : (
-            <div>
-              <div className="reportar-section">
-                <h2>Datos de Pérdida</h2>
-                <p className="welcome-title"> Animate! </p>
-              </div>
-              <div className="container-reporter">
-                <label className="input-label-reporter" htmlFor="description">
-                  Última Vez Visto
-                </label>
-                <input
-                  value={post.last_seen}
-                  onChange={(evt) =>
-                    setPost({ ...post, last_seen: evt.target.value })
-                  }
-                  required
-                  type="text"
-                  className="input-reporter"
-                  placeholder="Descripción de la última vez visto"
-                  id="last_seen"
-                />
-                <label className="input-label-reporter" htmlFor="description">
-                  Descripción
-                </label>
-                <textarea
-                  value={post.description}
-                  onChange={(evt) =>
-                    setPost({ ...post, description: evt.target.value })
-                  }
-                  required
-                  className="input-reporter"
-                  placeholder="Descripción de la mascota"
-                  id="description"
-                ></textarea>
-                <label className="input-label-reporter" htmlFor="lost_date">
-                  Fecha de pérdida
-                </label>
-                <input
-                  value={post.lost_date}
-                  onChange={(evt) =>
-                    setPost({ ...post, lost_date: evt.target.value })
-                  }
-                  required
-                  type="date"
-                  className="input-reporter"
-                  id="lost_date"
-                />
-                <label className="input-label-reporter" htmlFor="owner">
-                  ¿Es usted el dueño de la mascota?
-                </label>
+
+              <div className="form-control">
+                <label htmlFor="genero">Genero</label>
                 <select
-                  value={post.owner}
+                  id="genero"
+                  name="genero"
+                  value={post.gender}
                   onChange={(evt) =>
-                    setPost({ ...post, owner: evt.target.value })
+                    setPost({ ...post, gender: evt.target.value })
                   }
-                  required
-                  className="input-reporter"
-                  id="owner"
                 >
-                  <option value={true}>Sí</option>
-                  <option value={false}>No</option>
+                  {genders.map((gender) => (
+                    <option key={gender} value={gender}>
+                      {gender}
+                    </option>
+                  ))}
                 </select>
-                <ImagenesMascotas setGallery={setGallery} gallery={gallery} />
-                <div className="button-direction">
-                  <button
-                    type="submit"
-                    className="buton-reporter"
-                    disabled={loading}
-                  >
-                    {loading ? <CSpinner /> : "Reportar"}
-                  </button>
-                </div>
               </div>
             </div>
-          )}
-        </form>  
+
+            <div className="form_group_row">
+              <div className="form-control">
+                <label htmlFor="age">Edad</label>
+                <input
+                  type="text"
+                  id="age"
+                  name="age"
+                  placeholder="Edad"
+                  value={post.age}
+                  onChange={(evt) =>
+                    setPost({ ...post, age: evt.target.value })
+                  }
+                />
+              </div>
+
+              <div className="form-control">
+                {/* Size */}
+                <label htmlFor="size">Tamaño</label>
+                <select
+                  id="size"
+                  name="size"
+                  value={post.size}
+                  onChange={(evt) =>
+                    setPost({ ...post, size: evt.target.value })
+                  }
+                >
+                  {size.map((size) => (
+                    <option key={size} value={size}>
+                      {size}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="item_center">
+              <button className="form_button">
+                onClick={handleNext}
+                <BiSolidRightArrowSquare
+                  className="form_button_icon"
+                />
+                <span> Siguiente</span>
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );
