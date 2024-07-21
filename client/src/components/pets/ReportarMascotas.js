@@ -232,8 +232,7 @@ const ReportarMascotas = () => {
             </div>
 
             <div className="item_center">
-              <button className="form_button">
-                onClick={handleNext}
+              <button className="form_button" onClick={handleNext}>
                 <BiSolidRightArrowSquare
                   className="form_button_icon"
                 />
