@@ -8,7 +8,12 @@ import getCroppedImg from "../../utilities/cropimage"
 
 import './styles.css';
 
+import { toastData } from "context/globalContext";
+
 const ImagenesMascotas = ({setGallery, gallery}) => {
+    
+    const { toastError } = toastData();
+
     const [files, setFiles] = useState([]);
     const [image, setImage] = useState(null)
     const [crop, setCrop] = useState({ x: 0, y: 0 })
@@ -20,7 +25,6 @@ const ImagenesMascotas = ({setGallery, gallery}) => {
     }
 
     const getCropImage = async () => {
-        console.log(croppedAreaPixels);
         try {
             const croppedImage = await getCroppedImg(
                 image,
@@ -38,14 +42,14 @@ const ImagenesMascotas = ({setGallery, gallery}) => {
                 file: blob
             }]);
             setImage(null);
-            setGallery( dataPrev => [...dataPrev, blob] );
+            // TODO: REVISAR PARA QUE FUNCIONABA XD
+            // setGallery( dataPrev => [...dataPrev, blob] );
         } catch (e) {
-            console.log(e);
+            toastError('Error al recortar la imagen')
         }
     }
 
     const onDrop = useCallback(acceptedFiles => {
-        console.log(acceptedFiles);
         const url = URL.createObjectURL(acceptedFiles[0]);
         setImage(url);
     }, []);

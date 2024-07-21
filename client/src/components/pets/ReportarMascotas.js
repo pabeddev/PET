@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "../../css/imagen.css";
 import "../../css/ReportarMascotas.css";
@@ -9,114 +9,65 @@ import { createPost } from "../../api/pets";
 import { authUserStore } from "../../context/globalContext";
 import { useNavigate } from "react-router-dom";
 
-import {
-  breeds,
-  genders,
-  species,
-  size,
-  extenstionsOfImages,
-} from "utilities/maps";
+import { toastData } from "../../context/globalContext";
+
+import mapboxgl from "mapbox-gl";
+
+import { breeds, genders, species, size } from "utilities/maps";
 
 import {
   BiSolidRightArrowSquare,
   BiSolidLeftArrowSquare,
 } from "react-icons/bi";
+import MapView from "./MapView";
 
 const ReportarMascotas = () => {
-  const navigate = useNavigate();
-  const { user, logout } = authUserStore();
-  
+  const { toastError, toastSuccess } = toastData();
   const [formPage, setFormPage] = useState(1);
   const [gallery, setGallery] = useState([]);
-  const [post, setPost] = useState({
+
+  const [formData, setFormData] = useState({
+    // Data de la primero seccion del formulario
     name: "",
     specie: "Perro",
+    bread: "Mestizo",
     gender: "Macho",
     age: "",
-    last_seen: "",
-    description: "",
     size: "Chico",
-    breed: "Mestizo",
+    description: "",
+
+    // Data de la segunda seccion del formulario
+    last_seen: "",
     lost_date: "",
-    owner: false,
     image: "",
-    images: "",
+    images: [],
     location: "",
+    owner: false,
   });
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const formData = new FormData();
 
-    formData.append("name", post.name);
-    formData.append("specie", post.specie);
-    formData.append("gender", post.gender);
-    formData.append("age", post.age);
-    formData.append("last_seen", post.last_seen);
-    formData.append("description", post.description);
-    formData.append("size", post.size);
-    formData.append("breed", post.breed);
-    formData.append("lost_date", post.lost_date);
-    formData.append("owner", post.owner);
-    formData.append("image", gallery[0].file);
-    formData.append("images", gallery.file);
-
-    gallery.forEach((file) => {
-      formData.append("gallery", file.file);
-    });
-    formData.append("coordinates", post.coordinates);
-
-    setTimeout(() => {
-      console.log("Enviando formulario");
-    }, 3000);
-
-    const response = await createPost(formData, user.dataToken.token);
-    console.log(response);
-
-    if (response.error) {
-      if (response.error.response.status === 401) {
-        logout();
-        navigate("/Login");
-        return;
-      }
+    // Validar que los campos requeridos esten llenos
+    if (formData.description.trim() === "") {
+      toastError("La descripción es requerida");
       return;
     }
-
-    setPost({
-      name: "", // ok
-      specie: "", // ok
-      gender: "", // ok
-      age: "", // ok
-      last_seen: "", // ok
-      description: "", // ok
-      image: "",
-      gallery: [],
-      size: "", // ok
-      breed: "", // ok
-      lost_date: "", // ok
-      owner: false, // ok
-      location: "",
-    });
-
-    setGallery([]);
+    if (formData.last_seen.trim() === "") {
+      toastError("El lugar donde se extravió es requerido");
+      return;
+    }
   };
-
-  const handleChange = (evt) => {
-    setPost({
-      ...post,
-      [evt.target.name]: evt.target.value,
-    });
-  }
 
   const handleNext = (evt) => {
     evt.preventDefault();
     setFormPage(formPage + 1);
-  }
+  };
 
   const handlePrevious = (evt) => {
     evt.preventDefault();
     setFormPage(formPage - 1);
-  }
+  };
 
   return (
     <div className="container-report-pet">
@@ -125,21 +76,35 @@ const ReportarMascotas = () => {
         <h1>Reportar mascota</h1>
         <form className="form">
           {formPage === 1 && (
-            <FormPartOne formData={post} handleChange={handleChange} />
+            <FormPartOne formData={formData} setFormData={setFormData} />
           )}
           {formPage === 2 && (
-            <FormPartTwo formData={post} handleChange={handleChange} gallery={gallery} setGallery={setGallery}/>
+            <FormPartTwo
+              formData={formData}
+              setFormData={setFormData}
+              gallery={gallery}
+              setGallery={setGallery}
+            />
           )}
 
           <div className="item_center">
-            <button className="form_button" onClick={handlePrevious}>
-              <BiSolidLeftArrowSquare className="form_button_icon" />
-              <span> Anterior</span>
-            </button>
-            <button className="form_button" onClick={handleNext}>
-              <BiSolidRightArrowSquare className="form_button_icon" />
-              <span> Siguiente</span>
-            </button>
+            {formPage > 1 && (
+              <button className="form_button" onClick={handlePrevious}>
+                <BiSolidLeftArrowSquare />
+                Anterior
+              </button>
+            )}
+            {formPage < 2 && (
+              <button className="form_button" onClick={handleNext}>
+                Siguiente
+                <BiSolidRightArrowSquare />
+              </button>
+            )}
+            {formPage === 2 && (
+              <button className="form_button" onClick={handleSubmit}>
+                Enviar
+              </button>
+            )}
           </div>
         </form>
       </div>
@@ -147,7 +112,15 @@ const ReportarMascotas = () => {
   );
 };
 
-const FormPartOne = ({formData, handleChange}) => {
+const FormPartOne = ({ formData, setFormData }) => {
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <div className="form_group_row">
@@ -201,7 +174,7 @@ const FormPartOne = ({formData, handleChange}) => {
           <label htmlFor="genero">Genero</label>
           <select
             id="genero"
-            name="genero"
+            name="gender"
             value={formData.gender}
             onChange={handleChange}
           >
@@ -228,7 +201,6 @@ const FormPartOne = ({formData, handleChange}) => {
         </div>
 
         <div className="form-control">
-          {/* Size */}
           <label htmlFor="size">Tamaño</label>
           <select
             id="size"
@@ -258,12 +230,35 @@ const FormPartOne = ({formData, handleChange}) => {
           />
         </div>
       </div>
-
     </>
   );
-}
+};
 
-const FormPartTwo = ({formData, handleChange, gallery, setGallery}) => {
+const FormPartTwo = ({ formData, setFormData, gallery, setGallery }) => {
+  mapboxgl.accessToken =
+    "pk.eyJ1IjoibWFpbmxha2UiLCJhIjoiY2x5dmFiOWIwMDBwNDJrcHoyNDhmcmJoNCJ9.-3AL3FN0XWB5D-vJpEkWqA";
+
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const [markerCordinates, setMarkerCordinates] = useState(null);
+  useEffect(() => {
+    if (markerCordinates) {
+      setFormData({
+        ...formData,
+        location: {
+          x: markerCordinates.lng,
+          y: markerCordinates.lat,
+        },
+      });
+    }
+  }, [markerCordinates]);
+
   return (
     <>
       <div className="form_group_row">
@@ -294,9 +289,21 @@ const FormPartTwo = ({formData, handleChange, gallery, setGallery}) => {
       <div className="form_group_row">
         <div className="form-control">
           <label htmlFor="image">Imagen</label>
-          <ImagenesMascotas gallery={gallery} setGallery={setGallery}/>
+          <ImagenesMascotas gallery={gallery} setGallery={setGallery} />
         </div>
       </div>
+
+      <div className="form_group_row">
+        <div className="form-control">
+          <label htmlFor="location">Ubicación</label>
+          <MapView
+            defaultMapCenterCordinates={[-92.264907, 14.893214]}
+            markerCordinates={markerCordinates}
+            setMarkerCordinates={setMarkerCordinates}
+          />
+        </div>
+      </div>
+
       <div className="form_group_row">
         <div className="form-control">
           <label htmlFor="owner">¿Eres el dueño?</label>
@@ -311,6 +318,6 @@ const FormPartTwo = ({formData, handleChange, gallery, setGallery}) => {
       </div>
     </>
   );
-}
+};
 
 export default ReportarMascotas;
