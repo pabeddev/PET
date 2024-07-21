@@ -31,3 +31,10 @@ export const toastData = create((setState) => ({
     },
     toaster: <Toaster />,
 }));
+
+export const searchPet = create((setState) =>({
+  pets :[],
+  searchTerm:'',
+  setPets :(pets) => setState({pets}),
+  setSearchTerm:(term) => setState({ searchTerm: term })
+}))

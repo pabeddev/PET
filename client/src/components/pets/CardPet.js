@@ -1,56 +1,86 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../../css/cards.css'
+import { searchPet } from "context/globalContext";
+import { image } from "@cloudinary/url-gen/qualifiers/source";
 
 const CardPet = ({ pet }) => {
 
-    const navigate = useNavigate();
-
+    const [isExpanded, setIsExpanded] = useState(false)
     const [showAllDetails, setShowAllDetails] = useState(false);
 
+    const navigate = useNavigate();
+    
     const onClickInformacionContacto = (idPet, idUser) => {
         navigate(`/Mascota-Perdida/${idUser}/${idPet}`);
         return;
     }
 
+    const handleImageClick = () => {
+        setIsExpanded(!isExpanded)
+    }
+
+    const handleCloseClick = () => {
+        setIsExpanded(false)
+    }
+
+    console.log(image);
+    console.log(pet);
     return (
-        <div className="card-group">
-            <div className="card">
-                <img
-                    src={pet.identify?.image?.url || "https://via.placeholder.com/150"}
-                    className="card-img-top"
-                    alt={pet.name}
-                />
+        <>
+        <div className="">
+            <div className={`card ${isExpanded ? 'expanded' : ''}`}>
+                <div className="card-image" onClick={handleImageClick}>
+                    <img
+                        src={pet.identify?.image?.url || "https://via.placeholder.com/150"}
+                        
+                        alt={pet.name}
+                    />
+                </div>
                 <div className="card-body">
-                    <h5 className="card-title">Nombre: {pet.name}</h5>
-                    <p className="card-text">Raza: {pet.details.breed}</p>
-                    <p className="card-text">
+                    <h5 className="card-name-pet">Nombre: {pet.name}</h5>
+                    <p className="card-lost-pet">
                         Última vez Visto: {pet.publication.lost_date.split("T")[0]}
                     </p>
+                    <div className="card-information">
+                        <p className="card-race">
+                            {' '}
+                            <span className="race">Raza:</span> {pet.details.breed}
+                        </p>
+                        <p className="card-place">Ultima vez visto:</p>
+                        <p className="card-text-place">
+                            {pet.publication.last_seen}
+                        </p>
+                    </div>
                     {showAllDetails && (
                         <>
                             <p className="card-text">Tamaño: {pet.details.size}</p>
-                            <p className="card-text">
-                                Lugar donde se Extravió: {pet.publication.last_seen}
-                            </p>
+                            
                             <p className="card-text">Edad: {pet.details.age}</p>
                             <p className="card-text">Género: {pet.details.gender}</p>
                             <p className="card-text">Especie: {pet.details.specie}</p>
                         </>
                     )}
-                    <div className="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <div className="button-group button">
                         <button
-                            className={`btn btn-primary me-md-2 mb-2 ${showAllDetails ? "mb-md-0" : ""}`}
+                            className={` ${showAllDetails ? "" : ""}`}
                             onClick={() => setShowAllDetails(!showAllDetails)}
                         >
-                            {showAllDetails ? "Mostrar menos" : "Mostrar más"}
+                            {showAllDetails ? "Ver menos" : "Ver más"}
                         </button>
-                        <button onClick={evt => onClickInformacionContacto(pet._id, pet.user)} className="btn btn-secondary">
-                            Información de contacto
+                        <button onClick={evt => onClickInformacionContacto(pet._id, pet.user)} className="">
+                            Contactar
                         </button>
                     </div>
+                    {isExpanded && (
+                        <button className="close-button" onClick={handleCloseClick}>
+                            X
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
