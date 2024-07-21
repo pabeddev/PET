@@ -33,12 +33,12 @@ const ImagenesMascotas = ({setGallery, gallery}) => {
                 preview: URL.createObjectURL(blob),
                 file: blob
             }]);
-            // setFiles([...files, {
-            //     preview: URL.createObjectURL(blob),
-            //     file: blob
-            // }]);
+            setFiles([...files, {
+                preview: URL.createObjectURL(blob),
+                file: blob
+            }]);
             setImage(null);
-            // setGallery( dataPrev => [...dataPrev, blob] );
+            setGallery( dataPrev => [...dataPrev, blob] );
         } catch (e) {
             console.log(e);
         }
@@ -58,9 +58,9 @@ const ImagenesMascotas = ({setGallery, gallery}) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
     return (
-        <div className="container my-5">
-            <div className="row">
-                <div className="col-md-6">
+        <div className="">
+            <div className="">
+                <div className="">
                     {
                         gallery.length <= 4 ? (
                             <div {...getRootProps()} className={`dropzone border rounded-lg p-5 text-center ${isDragActive ? 'bg-primary text-white' : 'bg-light'}`}>
