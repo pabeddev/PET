@@ -1,14 +1,20 @@
+/* Estilos generales */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
 
 .form-section-rf {
   background-color: #f8f9fa;
   width: 100%;
-  height: 100vh; 
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem;
+  padding: 0.5rem;
   box-sizing: border-box;
 }
 
@@ -74,6 +80,7 @@
   padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
   cursor: pointer;
+  width: 100%;
 }
 
 .alert-rf {
@@ -102,27 +109,15 @@
 
 @media (max-width: 768px) {
   .form-rf {
-    padding: 2rem;
+    padding: 1rem; 
   }
 
   .form-rf button {
-    font-size: 1rem;
+    font-size: 1rem; 
   }
 
   .form-rf textarea {
     min-height: 100px;
   }
-
-.form-section-rf {
-  background-color: #f8f9fa;
-  width: 100%;
-  min-height: 100vh; /* Mínimo de altura para abarcar toda la pantalla */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-  box-sizing: border-box;
-}
+  
 }

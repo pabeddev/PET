@@ -1,4 +1,164 @@
-.card:hover {
-    box-shadow: 5px 10px 20px 1px;
-    transition: all 0.5s linear;
+.selector-section {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+
+.searching {
+  padding: 8px;
+  border: 1px solid #6a6a6a;
+  border-radius: 4px;
+}
+
+.dropdown {
+  width: 100px;
+  height: auto;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background: #546e7a;
+  color: #fff;
+  transition: transform 0.3s ease;
+  position: relative;
+  width: 350px;
+  height: auto;
+}
+
+.card.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  border-radius: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+.card.expanded .card-image img {
+  width: 700px;
+  height: 700px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.card.expanded .card-body {
+  display: none;
+}
+
+.card-image {
+  border: 3px solid #fff;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.card-image img {
+  border-radius: 32px;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3 ease;
+}
+
+.card-image img:hover {
+  transform: scale(1.1);
+}
+
+.card-body {
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-bottom: 20px;
+}
+
+.card-name-pet {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.card-lost-pet {
+  display: flex;
+  justify-content: center;
+}
+
+.card-status-pet{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.card-information {
+  border-top: 2px solid #fff;
+}
+
+.race {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-place {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+
+button {
+  display: block;
+  width: 100px;
+  height: 50px;
+  padding: 8px;
+  background-color: #546e7a;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.button-group {
+  display: flex;
+  gap: 65px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+  }
 }

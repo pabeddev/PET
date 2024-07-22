@@ -1,4 +1,6 @@
 import "../../css/comoreporto.css";
+import { usersRoutes } from "routes/routes";
+import { Link } from "react-router-dom";
 
 const ComoReporto = () => {
   return (
@@ -14,11 +16,11 @@ const ComoReporto = () => {
             </h1>
             <p className="col-lg-10 fs-5">
               Lo primero que se debe hacer antes de Reportar una Mascota es
-              Iniciar Sesión, si aun no tienes una cuenta, deberás ir al botón
-              "Registrarse" y llenar todos los campos como datos
-              correspondientes. Una vez hecho esto, podrás Iniciar Sesión e ir
-              al apartado "Reportar Mascotas", para poder realizar tu
-              publicación.
+              Iniciar Sesión, si aun no tienes una cuenta, deberás ir al botón <Link className="" 
+              to={usersRoutes.signUp}>"Regístrate"</Link> y llenar todos los campos como datos
+              correspondientes. Una vez hecho esto, podrás  <Link className="" to={usersRoutes.login}>
+             Iniciar Sesión
+            </Link> e ir al apartado "Reportar Mascotas", para poder realizar tu publicación.
             </p>
           </div>
           <div className="col-md-10 mx-auto col-lg-5">
@@ -43,7 +45,7 @@ const ComoReporto = () => {
                 />
                 <label htmlFor="floatingPassword">Contraseña</label>
               </div>
-              <button className="w-100 btn btn-lg btn-secondary" type="submit">
+              <button className="w-100 btn btn-lg btn-secondary">
                 Iniciar Sesión
               </button>
             </form>
@@ -57,7 +59,8 @@ const ComoReporto = () => {
               Paso 2: Reportar Mascota (Datos de la mascota)
             </h1>
             <p className="col-lg-10 fs-5">
-              Una vez iniciada sesión, ve al apartado "Reportar Mascotas", en el
+              Una vez iniciada sesión, ve al apartado <Link className="" 
+              to={usersRoutes.userPetPost}>"Reportar Mascotas"</Link>, en el
               cual tendrás que llenar los campos con los datos de la Mascota (si
               aplican). Deberás seleccionar la especie de tu Mascota, asi como
               su raza, esto con el fin de tener un mejor control de busqueda y
@@ -194,7 +197,7 @@ const ComoReporto = () => {
                   Fotografía de tu Mascota
                 </label>
               </div>
-              <button className="w-100 btn btn-lg btn-secondary" type="submit">
+              <button className="w-100 btn btn-lg btn-secondary">
                 Reportar Mascota
               </button>
             </form>
