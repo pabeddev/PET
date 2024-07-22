@@ -3,7 +3,11 @@ import { getPetsUser } from "../../api/users";
 import { authUserStore } from "../../context/globalContext";
 import { useNavigate } from "react-router";
 
+import { toastData } from "../../context/globalContext";
+
 const UserPost = () => {
+
+  const { toastError } = toastData();
   const [posts, setPosts] = useState([]);
   const { user, isAuthenticated } = authUserStore();
 
@@ -16,13 +20,14 @@ const UserPost = () => {
     }
 
     const getDataPetsUser = async () => {
-      const response = await getPetsUser(user.dataToken.token);
-      if (response.error) {
-        console.log(response.error);
-        return;
+      try {
+        const response = await getPetsUser(user.dataToken.token);
+        setPosts(response.data);
+      } catch (error) {
+        toastError("Error al obtener las mascotas perdidas");
       }
-      setPosts([...response.data]);
     }
+
     getDataPetsUser();
 
   }, [isAuthenticated]);
@@ -31,6 +36,12 @@ const UserPost = () => {
     <div>
       <h1>Mis mascotas perdidas</h1>
      
+      {
+        posts.length === 0 && (
+          <p>No tienes mascotas perdidas</p>
+        )
+      }
+
       <div>
         {posts.map((post) => (
           <div key={post._id}>

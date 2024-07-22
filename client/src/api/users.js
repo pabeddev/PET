@@ -21,13 +21,8 @@ export const getPetsUser = async (token) => {
     },
   };
 
-  try {
-    const response = await axiosInstance.get("/users/posts/", config);
-    return response;
-  } catch (error) {
-    console.log(error);
-    return { error: error };
-  }
+  return axiosInstance.get("/users/posts/", config);
+
 };
 
 export const validateAuth = async (token) => {

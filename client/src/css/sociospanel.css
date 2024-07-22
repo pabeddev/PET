@@ -10,7 +10,7 @@ body, html {
   background-color: #546e7a;
   background-size: cover;
   background-position: center;
-  padding-top: 0px; 
+  padding-top: 0px;
   padding-bottom: 0px;
   color: #ffffff;
   text-align: center;
@@ -114,25 +114,25 @@ body, html {
   }
 
   .btn-sp {
-    padding: 10px; 
+    padding: 10px;
     font-size: 0.9rem;
-    width: 120px; 
+    width: 120px;
     height: 40px;
   }
 
 
   .form-container-rf {
     max-width: 100%;
-    border-radius: 0; 
-    box-shadow: none; 
-    padding: 0rem; 
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0rem;
   }
   .form-rf {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   .form-group-rf {
     display: flex;
     flex-direction: column;

@@ -9,7 +9,6 @@ export const obtenerMascotas = async () => {
 
 
 export const createPost = async (formData, token) => {
-    console.log(formData);
     return axiosInstance.post("/users/posts/", formData, {
         // headers para form-data
         headers: {

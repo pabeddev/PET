@@ -1,12 +1,14 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 
-const MapView = ({setMarkerCordinates, defaultMapCenterCordinates }) => {
+const MapView = ({ markerCordinates, setMarkerCordinates, defaultMapCenterCordinates }) => {
 
   const mapDiv = useRef(null);
   const markerRef = useRef(null);
 
-  const [defaultCordinates, setDefaultCordinates] = useState(defaultMapCenterCordinates ? defaultMapCenterCordinates : [-99.1332, 19.4326]);
+  console.log('marker default', defaultMapCenterCordinates)
+
+  const [defaultCordinates, setDefaultCordinates] = useState(defaultMapCenterCordinates ? defaultMapCenterCordinates : [-92.266184, 14.902344]);
 
   useLayoutEffect(() => {
     const map = new mapboxgl.Map({
@@ -24,6 +26,13 @@ const MapView = ({setMarkerCordinates, defaultMapCenterCordinates }) => {
       },
       trackUserLocation: true
     }));
+
+    if (typeof(markerCordinates) === 'object' && Object.keys(markerCordinates).length > 0) {
+        console.log('Dentro de la condicion')
+        markerRef.current = new mapboxgl.Marker()
+            .setLngLat(markerCordinates)
+            .addTo(map);
+    }
 
     map.on("click", (event) => {
       if (markerRef.current) {

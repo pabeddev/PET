@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../../css/cards.css'
-import 'animate.css'
 
 const CardPet = ({ pet }) => {
     const navigate = useNavigate();

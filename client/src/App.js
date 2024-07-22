@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import 'css/App.css';
+import './css/App.css';
 
 import Dev from "components/Dev";
 // Componentes principales
@@ -114,7 +114,7 @@ const App = () => {
               />
             </Routes>
           </main>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       )}
     </>

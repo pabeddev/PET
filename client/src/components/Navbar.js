@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg bg-light ">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand">
           <img src={Logo} alt="Logo" height="50" />

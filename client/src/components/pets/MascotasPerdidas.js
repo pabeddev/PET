@@ -49,7 +49,7 @@ const MascotasPerdidas = () => {
             </div>
           </h1>
         ) : filteredPets.length === 0 ? (
-          <h1 className="text-center mt-5">La mascota no ha sido encontrada</h1>
+          <h1 className="text-center mt-5">No hay mascotas perdidas en este momento</h1>
         ) : (
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {filteredPets.map((pet) => (
