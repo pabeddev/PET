@@ -30,7 +30,7 @@ import {
 } from "components/informative";
 // Context
 import { loaderData } from "context/globalContext";
-import { usersRoutes, indexRoutes, devRoutes } from "routes/routes";
+import { usersRoutes, indexRoutes, pets } from "routes/routes";
 import RouteProtect from "routes/RouteProtect/RouteProtect";
 
 import { toastData } from "context/globalContext";
@@ -49,8 +49,6 @@ const App = () => {
           <Navbar />
           <main className="container-main">
             <Routes>
-              {/* Rutas de desarrollo */}
-              <Route path={devRoutes.dev} element={<Dev />} />
 
               {/* Index */}
               <Route
@@ -84,7 +82,7 @@ const App = () => {
 
               {/* Rutas de informacion */}
               <Route
-                path={usersRoutes.userPetGet}
+                path={pets.pets}
                 element={<MascotasPerdidas />}
               />
               <Route

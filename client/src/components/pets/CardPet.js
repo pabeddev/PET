@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const CardPet = ({ pet }) => {
-
     const navigate = useNavigate();
 
     const [showAllDetails, setShowAllDetails] = useState(false);

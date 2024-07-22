@@ -13,10 +13,9 @@ export const usersRoutes = {
     userPetAdoption: `${defaultPathUser}/user-pet-adoption`,
     userPetCare: `${defaultPathUser}/user-pet-care`,
     userPetImportance: `${defaultPathUser}/user-pet-importance`,
-        
-        
 }
 
-export const devRoutes = {
-    dev: '/dev',
+export const pets = {
+    pets: '/pets',
 }
+

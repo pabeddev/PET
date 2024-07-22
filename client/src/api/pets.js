@@ -9,28 +9,14 @@ export const obtenerMascotas = async () => {
 
 
 export const createPost = async (formData, token) => {
-
-    const config = {
+    console.log(formData);
+    return axiosInstance.post("/users/posts/", formData, {
+        // headers para form-data
         headers: {
             "Content-Type": "multipart/form-data",
             "Authorization": `Bearer ${token}`
-        },
-    };
-
-    try { 
-        const data = await axiosInstance.postForm('/users/posts', formData, config);
-        console.log(data);
-        return data.data;
-    }catch (error) {
-        console.log(error)
-        if(error.response.status === 500) {
-            return { error: "Error al crear la publicacion" }
         }
-        if(error.response.status === 401) {
-            return { error: error }
-        }
-    }
-
+    });
 }
 
 export const getPet = async (idPet) => {
