@@ -6,10 +6,20 @@ import { useNavigate } from "react-router-dom";
 import { obtenerMascotas } from "../../api/pets";
 import CardPet from "./CardPet";
 import { searchPet } from "context/globalContext";
-console.log("mascotas",obtenerMascotas);
+
 const MascotasPerdidas = () => {
   const navigate = useNavigate();
-  const { pets, searchTerm, setPets, setSearchTerm } = searchPet();
+  const { 
+    filteredPets,
+    searchTerm, 
+    setPets, 
+    setSearchTerm,
+    setGenderFilter,
+    setSpeciesFilter
+  } = searchPet();
+
+  console.log(filteredPets);
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,10 +31,8 @@ const MascotasPerdidas = () => {
     getPets();
   }, [setPets]);
 
-  const filteredPets = pets.filter(pet =>
-    pet.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
+  console.log(filteredPets);
   return (
     <>
       <div className="container mt-4 contenido">
@@ -36,6 +44,17 @@ const MascotasPerdidas = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <select onChange={(e) => setGenderFilter(e.target.value)}>
+            <option value="">género</option>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+          </select>
+          <select onChange={(e) => setSpeciesFilter(e.target.value)}>
+            <option value="">especies</option>
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+            <option value="Ave">Ave</option>
+          </select>
         </div>
         {loading ? (
           <h1 className="text-center mt-5">
