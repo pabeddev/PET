@@ -13,11 +13,13 @@ import {
     BiSolidLeftArrowSquare,
 } from "react-icons/bi";
 import {object} from "yup";
+import {CSpinner} from "@coreui/react";
 
 const ReportarMascotas = () => {
     const navigate = useNavigate();
     const {user} = authUserStore();
     const {toastError, toastSuccess} = toastData();
+    const [loading, setLoading] = useState(false);
     const [formPage, setFormPage] = useState(1);
     const [gallery, setGallery] = useState([]);
     const [markerCordinates, setMarkerCordinates] = useState({});
@@ -38,13 +40,16 @@ const ReportarMascotas = () => {
     });
 
     const handleSubmit = async (evt) => {
+        setLoading(true);
         evt.preventDefault();
         if (formData.description.trim() === "") {
             toastError("La descripción es requerida");
+            setLoading(false);
             return;
         }
         if (formData.last_seen.trim() === "") {
             toastError("El lugar donde se extravió es requerido");
+            setLoading(false);
             return;
         }
         const formDataToSend = new FormData();
@@ -68,10 +73,11 @@ const ReportarMascotas = () => {
 
         try {
             await createPost(formDataToSend, user.dataToken.token);
+            setLoading(false);
             toastSuccess("Mascota reportada exitosamente");
             navigate("/pets");
         } catch (error) {
-            console.log(error)
+            setLoading(false);
             toastError("Error al reportar la mascota");
         }
     };
@@ -299,7 +305,7 @@ const ReportarMascotas = () => {
                                     className="button_custom"
                                     onClick={handleSubmit}
                                 >
-                                    Reportar
+                                    {!loading ? "Reportar1" : <CSpinner color="primary" />}
                                 </button>
                             </div>
                         </div>

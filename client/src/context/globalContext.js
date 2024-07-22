@@ -21,10 +21,25 @@ export const loaderData = create((setState) => ({
 
 export const toastData = create((setState) => ({
     toastSuccess: (message) => {
-        toast.success(message);
+        toast(message, {
+            icon: "👌",
+            style: {
+                borderRadius: "10px",
+                background: "#333",
+                color: "#fff",
+            },
+        });
     },
     toastError: (message) => {
-        toast.error(message);
+        toast.error(message, {
+            // icon: "🚩🛑",
+            icon: "❌",
+            style: {
+                borderRadius: "10px",
+                background: "#333",
+                color: "#fff",
+            },
+        });
     },
     toastLoading: (message) => {
         toast.loading(message);
