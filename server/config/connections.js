@@ -16,6 +16,14 @@ require("dotenv").config();
  * @property {string} api_secret - API secret provided by Cloudinary to authenticate API requests.
  */
 
+console.log({
+
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_CLOUD_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET_CLOUD
+
+})
+
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_CLOUD_KEY,

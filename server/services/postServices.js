@@ -37,10 +37,12 @@ class PostServices {
         }
     }
 
-    async addGalleryToAPost(id, post_id, images) {
+    addGalleryToAPost = async(id, post_id, images) =>  {
+        console.log('Dentro de la funcion');
         await Promise.all(images.map(async (key) => {
             //await sharp(key["buffer"]).webp().toBuffer()
             let new_image = await this.imageTools.uploadImage(key["buffer"]);
+            console.log(new_image);
             let selector;
 
             if (key["fieldname"] === "image") {
@@ -75,6 +77,7 @@ class PostServices {
     }
 
     async createPost(id, post_data, role) {
+        console.log('Dentro de la funcion createPost');
         const session = await connection.startSession();
         const collection = this.modelDetector(role);
         const obj_data = post_data[0];
