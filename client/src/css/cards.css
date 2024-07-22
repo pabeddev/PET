@@ -23,7 +23,7 @@
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  background: #154744;
+  background: #546e7a;
   color: #fff;
   transition: transform 0.3s ease;
   position: relative;
@@ -119,7 +119,7 @@ button {
   width: 100px;
   height: 50px;
   padding: 8px;
-  background-color: #154744;
+  background-color: #546e7a;
   color: #fff;
   border: 2px solid #fff;
   border-radius: 8px;

@@ -7,11 +7,11 @@ body, html {
 
 /* Estilos para sección hero */
 .hero-section {
-  background-color: #154744;
+  background-color: #546e7a;
   background-size: cover;
   background-position: center;
-  padding-top: 0px; /* Aumentamos el espacio en dispositivos móviles */
-  padding-bottom: 0px; /* Aumentamos el espacio en dispositivos móviles */
+  padding-top: 0px; 
+  padding-bottom: 0px;
   color: #ffffff;
   text-align: center;
   margin-bottom: 2rem;

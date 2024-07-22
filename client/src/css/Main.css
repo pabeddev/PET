@@ -81,7 +81,7 @@
 
 @media (max-width: 768px) {
   .container-main {
-    grid-template-columns: 1fr;
+    grid-template-rows: 7fr;
   }
 
   .main-content {

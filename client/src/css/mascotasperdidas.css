@@ -60,7 +60,7 @@ body {
   align-items: flex-end;
   justify-content: space-between;
   margin: 0 auto;
-  color: #00b8de;
+  color: #000000;
 }
 .texto-cargando {
   padding-top: 20px;
@@ -72,7 +72,7 @@ body {
 .pelotas {
   width: 30px;
   height: 30px;
-  background-color: #00b8de;
+  background-color: #000000;
   animation: salto 0.5s alternate infinite;
   border-radius: 50%;
 }
