@@ -7,6 +7,7 @@ import Logo from "../imagenes/Logo.png";
 import "../css/navbar.css";
 
 import { usersRoutes } from "routes/routes";
+import { adminRoutes } from "routes/routes";
 
 const Navbar = () => {
   const { isAuthenticated, logout, user } = authUserStore();
@@ -58,13 +59,13 @@ const Navbar = () => {
             {isAuthenticated && user.role === "ADMINISTRATOR" && (
               <>
                 <li className="nav-item">
-                  <Link to="/Admin-Dashboard" className="nav-link">
-                    Panel de administracion
+                  <Link to={ adminRoutes.adminGetUsers } className="nav-link">
+                    Panel de administración
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/Collaborator-Request" className="nav-link">
-                    Bandeja de peticiones
+                  <Link to={adminRoutes.adminCollaboratorRequest} className="nav-link">
+                    Solicitudes de colaborador
                   </Link>
                 </li>
               </>

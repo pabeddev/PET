@@ -40,7 +40,7 @@ import {
 // Context
 import { loaderData } from "context/globalContext";
 
-import { usersRoutes, indexRoutes, devRoutes } from "routes/routes";
+import { usersRoutes, indexRoutes, devRoutes, adminRoutes } from "routes/routes";
 
 import RouteProtect from "routes/RouteProtect/RouteProtect";
 
@@ -72,13 +72,10 @@ const App = () => {
               element={<RouteProtect><ReportarMascotas/></RouteProtect>}
             />
             {/* Rutas para el administrador */}
-            <Route path="/Admin-Dashboard" element={<AdminDashboard />} />
-
+            <Route path={adminRoutes.adminGetUsers} element={<AdminDashboard />} />
+            <Route path={adminRoutes.adminCollaboratorRequest} element={<CollaboratorsRequest />} />
+            
             {/* Rutas para el colaborador */}
-            <Route
-              path="/Collaborator-Request"
-              element={<CollaboratorsRequest />}
-            />
 
             {/* Rutas privadas */}
 

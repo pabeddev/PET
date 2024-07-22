@@ -16,7 +16,7 @@ const UserDetails = ({ user, onBack }) => {
                         <li className="list-group-item h5"><strong>ID: </strong>{user._id}</li>
                         <li className="list-group-item h5"><strong>Nombre: </strong>{user.name}</li>
                         {!isCollaborator && <li className="list-group-item h5"><strong>Apellidos: </strong>{user.lastname}</li>}
-                        <li className="list-group-item h5"><strong>Contacto: </strong>{user.cellphone}</li>
+                        <li className="list-group-item h5"><strong>Contacto: </strong>{user.phone_number}</li>
                         {hasAddress && <li className="list-group-item h5"><strong>Redes sociales: </strong> {user.identifier}</li>}
                         {hasAddress && <li className="list-group-item h5"><strong>Descripción: </strong> {user.description}</li>}
                     </ul>

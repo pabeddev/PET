@@ -1,3 +1,5 @@
+import { AdminDashboard } from "components/admin";
+
 const defaultPathUser = '/user';
 
 export const indexRoutes = {
@@ -19,4 +21,9 @@ export const usersRoutes = {
 
 export const devRoutes = {
     dev: '/dev',
+}
+
+export const adminRoutes = {
+    adminGetUsers: `${defaultPathUser}/admin-user-get`,
+    adminCollaboratorRequest: `${defaultPathUser}/admin-collaborator-request`,
 }

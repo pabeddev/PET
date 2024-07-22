@@ -1,18 +1,15 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { authUserStore } from "../../context/globalContext";
 import UserList from "./userList";
-// Obtener usuarios y colaboradores
-import { obtenerUsuarios } from "../../api/administradores";
-import { obtenerUsuariosColaboradores } from "../../api/administradores";
+import { obtenerUsuarios, obtenerUsuariosColaboradores } from "../../api/administradores";
 import UserCollaboratorList from "./userCollaboratorList";
-
-import UserDetails from "./userDetails"
+import UserDetails from "./userDetails";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
-
   const [userData, setUserData] = useState([]);
+  const [collabData, setCollabData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
   const { user } = authUserStore();
@@ -23,27 +20,35 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     const getUser = async () => {
-      const dataUsers = await obtenerUsuarios(user.dataToken.token);
-      console.log(dataUsers);
-      setUserData([...dataUsers]);
-      setLoading(false);
+      try {
+        const dataUsers = await obtenerUsuarios(user.dataToken.token);
+        console.log(dataUsers[1]);
+        setUserData(dataUsers || []);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        setUserData([]);
+      }
     };
-    getUser();
 
     const getCollab = async () => {
-      const dataCollabs = await obtenerUsuariosColaboradores(user.dataToken.token);
-      console.log(dataCollabs);
-      setUserData([...dataCollabs]);
-      setLoading(false);
+      try {
+        const dataCollabs = await obtenerUsuariosColaboradores(user.dataToken.token);
+        console.log(dataCollabs[0]);
+        setCollabData(dataCollabs || []);
+      } catch (error) {
+        console.error("Error fetching collaborators:", error);
+        setCollabData([]);
+      }
     };
-    getCollab();
-  }, []);
+
+    Promise.all([getUser(), getCollab()]).finally(() => setLoading(false));
+  }, [user.dataToken.token]);
 
   return (
     <div className="container-fluid bg-light" style={{ minHeight: "100vh" }}>
       {loading ? (
         <h1>Cargando...</h1>
-      ) : userData.length === 0 ? (
+      ) : userData.length === 0 && collabData.length === 0 ? (
         <h1>No hay usuarios registrados</h1>
       ) : (
         <div className="container mt-4">
@@ -56,13 +61,13 @@ const AdminDashboard = () => {
               <div className="text-center">
                 <h2 className="title">Usuarios</h2>
               </div>
-              <UserList />
+              <UserList users={userData} onUserSelect={handleUserSelect} />
             </div>
             <div className="col-md-6">
               <div className="text-center">
                 <h2 className="title">Asociaciones y Rescatistas</h2>
               </div>
-              <UserCollaboratorList />
+              <UserCollaboratorList collaborators={collabData} onUserSelect={handleUserSelect} />
             </div>
           </div>
           {selectedUser && (
