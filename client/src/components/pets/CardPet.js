@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../../css/cards.css'
-import 'animate.css'
 
 const CardPet = ({ pet }) => {
     const navigate = useNavigate();
-
     const [isExpanded, setIsExpanded] = useState(false)
     const [showAllDetails, setShowAllDetails] = useState(false);
 
