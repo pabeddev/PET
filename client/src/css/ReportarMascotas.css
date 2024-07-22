@@ -42,6 +42,19 @@
   border-radius: 4px;
 }
 
+.form-control textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-control input[type="checkbox"] {
+  display: block;
+  width: auto;
+  margin-right: 0.5rem;
+}
+
 .item_center {
   margin-top: 1rem;
   display: flex;
@@ -53,9 +66,10 @@
   background-color: #546e7a;;
   color: white;
   padding: 0;
-  padding: 0.5rem 1rem;
+  padding: 0rem 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
 
 }
+

@@ -8,7 +8,12 @@ import getCroppedImg from "../../utilities/cropimage"
 
 import './styles.css';
 
+import { toastData } from "context/globalContext";
+
 const ImagenesMascotas = ({setGallery, gallery}) => {
+    
+    const { toastError } = toastData();
+
     const [files, setFiles] = useState([]);
     const [image, setImage] = useState(null)
     const [crop, setCrop] = useState({ x: 0, y: 0 })
@@ -20,7 +25,6 @@ const ImagenesMascotas = ({setGallery, gallery}) => {
     }
 
     const getCropImage = async () => {
-        console.log(croppedAreaPixels);
         try {
             const croppedImage = await getCroppedImg(
                 image,
@@ -33,19 +37,19 @@ const ImagenesMascotas = ({setGallery, gallery}) => {
                 preview: URL.createObjectURL(blob),
                 file: blob
             }]);
-            // setFiles([...files, {
-            //     preview: URL.createObjectURL(blob),
-            //     file: blob
-            // }]);
+            setFiles([...files, {
+                preview: URL.createObjectURL(blob),
+                file: blob
+            }]);
             setImage(null);
+            // TODO: REVISAR PARA QUE FUNCIONABA XD
             // setGallery( dataPrev => [...dataPrev, blob] );
         } catch (e) {
-            console.log(e);
+            toastError('Error al recortar la imagen')
         }
     }
 
     const onDrop = useCallback(acceptedFiles => {
-        console.log(acceptedFiles);
         const url = URL.createObjectURL(acceptedFiles[0]);
         setImage(url);
     }, []);
@@ -58,9 +62,9 @@ const ImagenesMascotas = ({setGallery, gallery}) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
     return (
-        <div className="container my-5">
-            <div className="row">
-                <div className="col-md-6">
+        <div className="">
+            <div className="">
+                <div className="">
                     {
                         gallery.length <= 4 ? (
                             <div {...getRootProps()} className={`dropzone border rounded-lg p-5 text-center ${isDragActive ? 'bg-primary text-white' : 'bg-light'}`}>
