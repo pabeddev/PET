@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "../../css/mascotasperdidas.css";
 import { useNavigate } from "react-router-dom"; 
 
-// Obtener mascotas
 import { obtenerMascotas } from "../../api/pets";
 import CardPet from "./CardPet";
 import { searchPet } from "context/globalContext";
