@@ -1,154 +1,164 @@
-.selector-section{
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 30px;
+.selector-section {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
 }
 
-.searching{
-    padding: 8px;
-    border: 1px solid #6A6A6A;
-    border-radius: 4px;
+.searching {
+  padding: 8px;
+  border: 1px solid #6a6a6a;
+  border-radius: 4px;
 }
 
-.dropdown{
-    width: 100px;
-    height: auto;
+.dropdown {
+  width: 100px;
+  height: auto;
 }
 
-.card{
-    border: 1px solid #ccc;
-    border-radius: 32px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    background: #154744;
-    color: #fff;
-    transition: transform 0.3s ease;
-    position: relative;
-    width: 350px;
-    height: auto;
+.card {
+  border: 1px solid #ccc;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background: #154744;
+  color: #fff;
+  transition: transform 0.3s ease;
+  position: relative;
+  width: 350px;
+  height: auto;
 }
 
-.card.expanded{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
-    border-radius: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background: rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: auto;
+.card.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  border-radius: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
 }
 
 .card.expanded .card-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    cursor: pointer;
-  }
-
-  .card.expanded .card-body {
-    display: none;
-  }
-
-.card-image{
-    border: 3px solid #fff;
-    border-radius: 32px;
-    overflow: hidden;
+  width: 700px;
+  height: 700px;
+  object-fit: contain;
+  cursor: pointer;
 }
 
-.card-image img{
-    border-radius: 32px;
-    width: 100%;
-    height: auto;
-    transition: transform 0.3 ease;
+.card.expanded .card-body {
+  display: none;
 }
 
-.card-image img:hover{
-    transform: scale(1.1);
+.card-image {
+  border: 3px solid #fff;
+  border-radius: 32px;
+  overflow: hidden;
 }
 
-.card-body{
-    padding-left: 45px;
-    padding-right: 45px;
-    padding-bottom: 20px;
+.card-image img {
+  border-radius: 32px;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3 ease;
 }
 
-.card-name-pet{
-    font-size: 2em;
-    font-weight: bold;
+.card-image img:hover {
+  transform: scale(1.1);
 }
 
-.card-lost-pet{
+.card-body {
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-bottom: 20px;
+}
+
+.card-name-pet {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.card-lost-pet {
+  display: flex;
+  justify-content: center;
+}
+
+.card-status-pet{
     display: flex;
-    justify-content: end;
-}
-
-.card-information{
-    border-top: 2px solid #fff;
-}
-
-.race{
+    justify-content: center;
     font-weight: bold;
-    margin-bottom: 5px;
 }
 
-.card-place{
-    font-weight: bold;
-    margin-bottom: 5px;
+.card-information {
+  border-top: 2px solid #fff;
 }
 
-button{
-    display: block;
-    width: 100px;
-    height: 50px;
-    padding: 8px;
-    background-color: #154744;
-    color: #fff;
-    border: 2px solid #fff;
-    border-radius: 8px;
-    cursor: pointer;
+.race {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-button:hover{
-    background-color: #fff;
-    color: #000;
+.card-place {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-.button-group{
-    display: flex;
-    gap: 65px;
+
+
+button {
+  display: block;
+  width: 100px;
+  height: 50px;
+  padding: 8px;
+  background-color: #154744;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.button-group {
+  display: flex;
+  gap: 65px;
 }
 
 .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  .close-button:hover {
-    color: #ccc;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    height: auto;
   }
 
-  @media (max-width:768px) {
-    .card{
-        width: 500px;
-    }
-
-    .card-image{
-        width: 500px;
-    }
+  .card-image {
+    width: 100%;
+    height: auto;
   }
+}

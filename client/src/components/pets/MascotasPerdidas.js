@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import "../../css/mascotasperdidas.css";
-import Footer from "../Footer";
-import { useNavigate } from "react-router-dom"; // Asegúrate de importar desde 'react-router-dom'
+import { useNavigate } from "react-router-dom"; 
 
 // Obtener mascotas
 import { obtenerMascotas } from "../../api/pets";
 import CardPet from "./CardPet";
-import { searchPet } from "context/globalContext"; // Asegúrate de importar correctamente
-
+import { searchPet } from "context/globalContext";
+console.log("mascotas",obtenerMascotas);
 const MascotasPerdidas = () => {
   const navigate = useNavigate();
   const { pets, searchTerm, setPets, setSearchTerm } = searchPet();
@@ -39,9 +38,18 @@ const MascotasPerdidas = () => {
           />
         </div>
         {loading ? (
-          <h1 className="text-center mt-5">Cargando...</h1>
+          <h1 className="text-center mt-5">
+            <div className="container">
+              <div className="cargando">
+                <div className="pelotas"></div>
+                <div className="pelotas"></div>
+                <div className="pelotas"></div>
+                <span className="texto-cargando">Cargando...</span>
+              </div>
+            </div>
+          </h1>
         ) : filteredPets.length === 0 ? (
-          <h1 className="text-center mt-5">No hay mascotas perdidas</h1>
+          <h1 className="text-center mt-5">La mascota no ha sido encontrada</h1>
         ) : (
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {filteredPets.map((pet) => (
