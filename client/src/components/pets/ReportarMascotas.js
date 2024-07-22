@@ -22,6 +22,10 @@ import {
 import MapView from "./MapView";
 
 const ReportarMascotas = () => {
+
+  const navigate = useNavigate();
+
+  const { user } = authUserStore();
   const { toastError, toastSuccess } = toastData();
   const [formPage, setFormPage] = useState(1);
   const [gallery, setGallery] = useState([]);
@@ -30,7 +34,7 @@ const ReportarMascotas = () => {
     // Data de la primero seccion del formulario
     name: "",
     specie: "Perro",
-    bread: "Mestizo",
+    breed: "Mestizo",
     gender: "Macho",
     age: "",
     size: "Chico",
@@ -48,7 +52,6 @@ const ReportarMascotas = () => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
-    // Validar que los campos requeridos esten llenos
     if (formData.description.trim() === "") {
       toastError("La descripción es requerida");
       return;
@@ -57,6 +60,39 @@ const ReportarMascotas = () => {
       toastError("El lugar donde se extravió es requerido");
       return;
     }
+
+    const formDataToSend = new FormData();
+
+    console.log(formData);
+
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("specie", formData.specie);
+    formDataToSend.append("breed", formData.breed);
+    formDataToSend.append("gender", formData.gender);
+    formDataToSend.append("age", formData.age);
+    formDataToSend.append("size", formData.size);
+    formDataToSend.append("description", formData.description);
+    formDataToSend.append("last_seen", formData.last_seen);
+    formDataToSend.append("lost_date", formData.lost_date);
+    formDataToSend.append("owner", formData.owner);
+    formDataToSend.append("location", JSON.stringify(formData.location));
+    formDataToSend.append("image", gallery[0].file);
+    
+    gallery.forEach((image) => {
+      formDataToSend.append("images", image.file);
+    });
+    
+    try {
+      const response = await createPost(formDataToSend, user.dataToken.token);
+      console.log(response);
+      toastSuccess("Mascota reportada exitosamente");
+      navigate("/pets");
+    }catch(error) {
+      console.log(error);
+      toastError("Error al reportar la mascota");
+    }
+
+
   };
 
   const handleNext = (evt) => {

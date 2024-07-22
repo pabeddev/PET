@@ -81,11 +81,11 @@
 
 @media (max-width: 768px) {
   .container-main {
-    grid-template-rows: 7fr;
+    grid-template-rows: 1fr;
   }
 
   .main-content {
-    grid-template-rows: 2fr 1fr 10fr;
+    grid-template-rows: 1fr 1fr 10fr;
   }
 
   .main-image {
@@ -97,7 +97,7 @@
   }
 
   .info-sections {
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 3fr 3fr;
   }
 
   .info-section {

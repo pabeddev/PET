@@ -6,7 +6,7 @@ import { deleteDataLocalStorage } from "../localstorage/sesionLocalStorage";
 import Logo from "../imagenes/Logo.png";
 import "../css/navbar.css";
 
-import { usersRoutes } from "routes/routes";
+import { usersRoutes, pets } from "routes/routes";
 
 const Navbar = () => {
   const { isAuthenticated, logout, user } = authUserStore();
@@ -46,7 +46,7 @@ const Navbar = () => {
               </li>
             )}
             <li className="nav-item">
-              <Link to={usersRoutes.userPetGet} className="nav-link">
+              <Link to={pets.pets} className="nav-link">
                 Mascotas Perdidas
               </Link>
             </li>

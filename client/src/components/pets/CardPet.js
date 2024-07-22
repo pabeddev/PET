@@ -4,8 +4,8 @@ import '../../css/cards.css'
 import 'animate.css'
 
 const CardPet = ({ pet }) => {
+    const navigate = useNavigate();
 
-    const [isExpanded, setIsExpanded] = useState(false)
     const [showAllDetails, setShowAllDetails] = useState(false);
 
     const navigate = useNavigate();
