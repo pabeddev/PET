@@ -18,16 +18,9 @@ export const createPost = async (formData, token) => {
     });
 }
 
-export const getPet = async (idPet) => {
-    try {
-        const response = await axiosInstance.get(`/guests/publications/search?pet=${idPet}`);
-        return response.data;
-    }catch(error) {
-        console.log(error);
-        if(error.response.status === 500) {
-            return { error: "Error al obtener la mascota" }
-        }
-    }
+export const getPet = (idPet) => {
+    console.log(idPet)
+    return axiosInstance.get(`/posts/search?pet=${idPet}`);
 }
 
 export const addComment = async (idPet, data, token) => {

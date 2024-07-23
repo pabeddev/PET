@@ -17,8 +17,6 @@ const MascotasPerdidas = () => {
     setSpeciesFilter
   } = searchPet();
 
-  console.log(filteredPets);
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
