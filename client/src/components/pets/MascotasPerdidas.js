@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../css/mascotasperdidas.css";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 import { obtenerMascotas } from "../../api/pets";
 import CardPet from "./CardPet";
@@ -8,10 +8,10 @@ import { searchPet } from "context/globalContext";
 
 const MascotasPerdidas = () => {
   const navigate = useNavigate();
-  const { 
+  const {
     filteredPets,
-    searchTerm, 
-    setPets, 
+    searchTerm,
+    setPets,
     setSearchTerm,
     setGenderFilter,
     setSpeciesFilter
@@ -41,21 +41,23 @@ const MascotasPerdidas = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <select onChange={(e) => setGenderFilter(e.target.value)}>
-            <option value="">género</option>
-            <option value="Macho">Macho</option>
-            <option value="Hembra">Hembra</option>
-          </select>
-          <select onChange={(e) => setSpeciesFilter(e.target.value)}>
-            <option value="">especies</option>
-            <option value="Perro">Perro</option>
-            <option value="Gato">Gato</option>
-            <option value="Ave">Ave</option>
-          </select>
+          <div className="section-filters">
+            <select onChange={(e) => setGenderFilter(e.target.value)} className="section-gender">
+              <option value="">Género</option>
+              <option value="Macho">Macho</option>
+              <option value="Hembra">Hembra</option>
+            </select>
+            <select onChange={(e) => setSpeciesFilter(e.target.value)} className="section-specie">
+              <option value="">Especies</option>
+              <option value="Perro">Perro</option>
+              <option value="Gato">Gato</option>
+              <option value="Ave">Ave</option>
+            </select>
+          </div>
         </div>
         {loading ? (
           <h1 className="text-center mt-5">
-            <div className="container">
+            <div className="container-animation">
               <div className="cargando">
                 <div className="pelotas"></div>
                 <div className="pelotas"></div>
