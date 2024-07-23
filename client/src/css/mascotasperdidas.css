@@ -1,3 +1,46 @@
+/* Selector Grid */
+.selector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Dos columnas en pantallas grandes */
+  gap: 1rem;
+  /* Espacio entre los filtros */
+}
+
+/* Pantallas más pequeñas */
+@media (max-width: 768px) {
+  .selector-grid {
+    grid-template-columns: 1fr;
+    /* Una columna en pantallas pequeñas */
+  }
+}
+
+/* Estilo del botón de reset */
+.button_filters {
+  background-color: #475e68;
+  color: #fff;
+  border: 1px solid #000000;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.button_filters:hover {
+  background-color: #fff;
+}
+
+button_filters {
+  display: block;
+  width: 100px;
+  height: 50px;
+  padding: 8px;
+  background-color: #475e68;
+  color: #fff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 .show-pet {
   background-color: #e9e9e9;
 }

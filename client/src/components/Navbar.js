@@ -1,21 +1,27 @@
+import "../css/navbar.css";
+
+import Avatar from "@mui/material/Avatar";
+import PetsIcon from "@mui/icons-material/Pets";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CSpinner } from "@coreui/react";
+import { useNavigate } from "react-router-dom";
+
+import Logo from "../imagenes/Logo.png";
 import { authUserStore } from "../context/globalContext";
 import { deleteDataLocalStorage } from "../localstorage/sesionLocalStorage";
-import Logo from "../imagenes/Logo.png";
-import "../css/navbar.css";
-
 import { usersRoutes, pets } from "routes/routes";
 
 const Navbar = () => {
   const { isAuthenticated, logout, user } = authUserStore();
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
 
   const logoutSession = () => {
     setLoading(true);
     logout();
     deleteDataLocalStorage();
+    navigate("/user/login");
     setLoading(false);
   };
 

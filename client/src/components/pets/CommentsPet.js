@@ -47,58 +47,72 @@ const CommentsPet = ({ comments, idPet, setComments }) => {
     }
 
     return (
-        <div className="container-fluid my-5">
-          <h3 className="mb-4 text-center">Comentarios de la Mascota Perdida</h3>
-    
-          <div className="text-center">
-            {error && <div className="alert alert-danger">{error}</div>}
-            {mensaje && <div className="alert alert-success">{mensaje}</div>}
-          </div>
-    
-          <div className="text-center mb-2 p-4 border rounded">
-            <label htmlFor="commentInput" className="form-label">Agregar Comentario</label>
-            <textarea
-              id="commentInput"
-              value={comment}
-              className="text-center form-control comment-input"
-              onChange={evt => setComment(evt.target.value)}
-              placeholder="Escribe tu comentario aquí..."
-              rows={4}
-            ></textarea>
-            {isAuthenticated ? (
-              <div className="text-center mt-2">
-                <button onClick={onClickAddComment} className="btn-comment">
-                  {!loading ? "Agregar Comentario" : <CSpinner color="primary" />}
-                </button>
-              </div>
-            ) : (
-              <div className="text-center mt-2">
-                <p>Para agregar un comentario, por favor inicia sesión.</p>
-                <button className="btn-comment" disabled>Iniciar Sesión</button>
-              </div>
-            )}
-          </div>
-    
-          <div className="comments-list mt-4">
-            <h4 className="mb-4">Comentarios</h4>
-            <ul className="list-group">
-              {comments.length === 0 ? (
-                <li className="list-group-item text-center">No hay comentarios</li>
-              ) : (
-                comments.map((comment, index) => (
-                  <li key={index} className="list-group-item mb-3 p-3 border rounded shadow-sm">
-                    <div>
-                      <h5 className="mb-1"><span className="text-primary">Comentario:</span> {comment.title}</h5>
-                      <p className="mb-1 text-muted">Usuario: {comment.user.name}</p>
-                      <p className="mb-1">{comment.text}</p>
-                    </div>
-                  </li>
-                ))
-              )}
-            </ul>
-          </div>
+      <div className="my-5 w-100">
+        <h3 className="mb-4 text-center">Comentarios de la Mascota Perdida</h3>
+
+        <div className="text-center">
+          {error && <div className="alert alert-danger">{error}</div>}
+          {mensaje && <div className="alert alert-success">{mensaje}</div>}
         </div>
-      );
+
+        <div className="text-center mb-2 p-4 border rounded input_comment">
+          <label htmlFor="commentInput" className="form-label">
+            Agregar Comentario
+          </label>
+          <textarea
+            id="commentInput"
+            value={comment}
+            className="input_textarea_comment"
+            onChange={(evt) => setComment(evt.target.value)}
+            placeholder="Escribe tu comentario aquí..."
+            rows={4}
+          ></textarea>
+          {isAuthenticated ? (
+            <div className="text-center mt-2">
+              <button onClick={onClickAddComment} className="btn-comment">
+                {!loading ? "Agregar Comentario" : <CSpinner color="primary" />}
+              </button>
+            </div>
+          ) : (
+            <div className="text-center mt-2">
+              <p>Para agregar un comentario, por favor inicia sesión.</p>
+              <button className="btn-comment" disabled>
+                Iniciar Sesión
+              </button>
+            </div>
+          )}
+        </div>
+
+        <div className="comments-list mt-4">
+          <h4 className="mb-4">Comentarios</h4>
+          <ul className="list-group">
+            {comments.length === 0 ? (
+              <li className="list-group-item text-center">
+                No hay comentarios
+              </li>
+            ) : (
+              comments.map((comment, index) => (
+                <li
+                  key={index}
+                  className="list-group-item mb-3 p-3 border rounded shadow-sm"
+                >
+                  <div>
+                    <h5 className="mb-1">
+                      <span className="text-primary">Comentario:</span>{" "}
+                      {comment.title}
+                    </h5>
+                    <p className="mb-1 text-muted">
+                      Usuario: {comment.user.name}
+                    </p>
+                    <p className="mb-1">{comment.text}</p>
+                  </div>
+                </li>
+              ))
+            )}
+          </ul>
+        </div>
+      </div>
+    );
 }
 
 export default CommentsPet;
