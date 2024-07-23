@@ -7,12 +7,6 @@ import 'css/ReportarMascotas.css'
 import {breeds, genders, species, size} from "utilities/maps";
 import MapView from "./MapView";
 import ImagenesMascotas from "./ImagenesMascotas";
-
-import {
-    BiSolidRightArrowSquare,
-    BiSolidLeftArrowSquare,
-} from "react-icons/bi";
-import {object} from "yup";
 import {CSpinner} from "@coreui/react";
 
 const ReportarMascotas = () => {
