@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { getPet } from "../../api/pets";
 import "../../css/mascotaperdida.css";
 import CommentsPet from "./CommentsPet";
+import MapView from "./MapView";
 
 const formatDate = (dateString) => {
   const options = { year: "numeric", month: "long", day: "numeric" };
@@ -139,6 +140,19 @@ const MascotaPerdida = () => {
             <h5 className="fw-bold">Descripción:</h5>
             <p>{dataPet.details.description}</p>
           </div>
+          {dataPet.publication.location && (
+            <>
+              <h5 className="fw-bold">Ubicación de perdida</h5>
+              <MapView
+                edit={false}
+                defaultMapCenterCordinates={[
+                  dataPet.publication.location.lng,
+                  dataPet.publication.location.lat,
+                ]}
+                markerCordinates={dataPet.publication.location}
+              />
+            </>
+          )}
           <CommentsPet
             comments={comments}
             idPet={id_pet}

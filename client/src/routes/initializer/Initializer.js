@@ -14,14 +14,16 @@ const Initializer = ({ children }) => {
 
         const token = dataSesion.dataToken.token;
 
-        // Obtener si el token es valido aun
         try {
-          // TODO: Eliminar el console.log
           const data = await validateAuth(token);
-          console.log(data)
           await login(dataSesion);
         } catch (error) {
+          console.log(error)
           if (error.response.status === 401) {
+            loadingDataComplete();
+            return;
+          }
+          if (error.response.status === 500) {
             loadingDataComplete();
             return;
           }

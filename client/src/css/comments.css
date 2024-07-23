@@ -11,3 +11,17 @@
 .input_textarea_comment:focus {
   outline: none;
 }
+
+.btn_comment {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn_comment:hover {
+  background-color: #45a049;
+  color: white;
+}
