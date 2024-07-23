@@ -7,7 +7,7 @@ body, html {
 
 /* Estilos para sección hero */
 .hero-section {
-  background-color: #546e7a;
+  background-color: #678695;
   background-size: cover;
   background-position: center;
   padding-top: 0px;
@@ -33,10 +33,10 @@ body, html {
 }
 
 .btn-sp {
-  padding: 12px; /* Reducimos el padding en dispositivos móviles */
+  padding: 12px;
   font-size: 1rem;
-  background-color: #a7c1c0;
-  color: #000000;
+  background-color: #546c78;
+  color: white;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;

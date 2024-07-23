@@ -65,19 +65,19 @@ const RescueForm = () => {
         <form onSubmit={handleSubmit} className="form-rf">
           <div className="form-group-rf">
             <label htmlFor="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" value={formData.name} onChange={evt => setFormData({ ...formData, name: evt.target.value })} placeholder="Ingrese su nombre" />
+            <input type="text" id="nombre" name="nombre" value={formData.name} onChange={evt => setFormData({ ...formData, name: evt.target.value })} placeholder="Ingrese de Rescatista o Asociación" />
           </div>
           <div className="form-group-rf">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={evt => setFormData({ ...formData, email: evt.target.value })} placeholder="Ingrese su correo electrónico" />
+            <input type="email" id="email" name="email" value={formData.email} onChange={evt => setFormData({ ...formData, email: evt.target.value })} placeholder="Ingrese su Correo electrónico" />
           </div>
           <div className="form-group-rf">
             <label htmlFor="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion" value={formData.address} onChange={evt => setFormData({ ...formData, address: evt.target.value })} placeholder="Ingrese su dirección" />
+            <input type="text" id="direccion" name="direccion" value={formData.address} onChange={evt => setFormData({ ...formData, address: evt.target.value })} placeholder="Ingrese su Dirección" />
           </div>
           <div className="form-group-rf">
             <label htmlFor="redSocial">Red Social</label>
-            <input type="text" id="redSocial" name="redSocial" value={formData.identifier} onChange={evt => setFormData({ ...formData, identifier: evt.target.value })} placeholder="Ingrese el link de su red social" />
+            <input type="text" id="redSocial" name="redSocial" value={formData.identifier} onChange={evt => setFormData({ ...formData, identifier: evt.target.value })} placeholder="Ingrese su red social" />
           </div>
           <div className="form-group-rf">
             <label htmlFor="descripcion">Descripción</label>
@@ -85,7 +85,7 @@ const RescueForm = () => {
           </div>
           <div className="form-group-rf">
             <label htmlFor="password">Contraseña</label>
-            <input type="password" id="password" name="password" value={formData.password} onChange={evt => setFormData({ ...formData, password: evt.target.value })} placeholder="Ingrese su contraseña" />
+            <input type="password" id="password" name="password" value={formData.password} onChange={evt => setFormData({ ...formData, password: evt.target.value })} placeholder="Ingrese su Contraseña" />
           </div>
           {formError && <div className="alert-rf alert-danger-rf">{formError}</div>}
           <div className="text-center-rf">
