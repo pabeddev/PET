@@ -47,9 +47,40 @@ export const toastData = create((setState) => ({
     toaster: <Toaster />,
 }));
 
-export const searchPet = create((setState) =>({
-  pets :[],
-  searchTerm:'',
-  setPets :(pets) => setState({pets}),
-  setSearchTerm:(term) => setState({ searchTerm: term })
+export const searchPet = create((setState) => ({
+  pets: [],
+  filteredPets: [],
+  searchTerm: '',
+  genderFilter: '',
+  speciesFilter: '',
+
+  setPets: (pets) => setState((state) => ({
+    pets,
+    filteredPets: state.applyFilters(pets, state.searchTerm, state.genderFilter, state.speciesFilter)
+  })),
+
+  setSearchTerm: (term) => setState((state) => ({
+    searchTerm: term,
+    filteredPets: state.applyFilters(state.pets, term, state.genderFilter, state.speciesFilter)
+  })),
+
+  setGenderFilter: (gender) => setState((state) => ({
+    genderFilter: gender,
+    filteredPets: state.applyFilters(state.pets, state.searchTerm, gender, state.speciesFilter)
+  })),
+
+  setSpeciesFilter: (species) => setState((state) => ({
+    speciesFilter: species,
+    filteredPets: state.applyFilters(state.pets, state.searchTerm, state.genderFilter, species)
+  })),
+
+  applyFilters: (pets, searchTerm, gender, species) => {
+    return pets.filter(pet => {
+      return (
+        (!searchTerm || pet.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
+        (!gender || pet.gender === gender) &&
+        (!species || pet.species === species)
+      );
+    });
+  },
 }))

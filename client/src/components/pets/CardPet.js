@@ -22,7 +22,7 @@ const CardPet = ({ pet }) => {
 
     return (
         <>
-            <div className="animate__animated animate__fadeInUp">
+            <div /* className="animate__animated animate__fadeInUp" */>
                 <div className={`card ${isExpanded ? 'expanded' : ''}`}>
                     <div className="card-image" onClick={handleImageClick}>
                         <img

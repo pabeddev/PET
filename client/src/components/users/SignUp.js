@@ -127,7 +127,7 @@ const Signup = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Correo electronico"
+                placeholder="Correo electrónico"
                 className="form-control"
                 required
                 value={newUser.email}
@@ -175,7 +175,7 @@ const Signup = () => {
               type="string"
               id="phone_number"
               name="phone_number"
-              placeholder="Telefono"
+              placeholder="Teléfono"
               className="form-control"
               required
               value={newUser.phone_number}
