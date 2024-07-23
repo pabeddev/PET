@@ -1,0 +1,33 @@
+.container_carrete_imagenes_custom {
+    margin-top: 1rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrete_imagenes_container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+
+}
+
+.carrete_imagen {
+    width: auto;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrete_imagen_delete {
+    position: absolute;
+    background-color: red;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .carrete_imagenes_container {
+        flex-direction: column;
+    }
+}

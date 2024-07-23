@@ -166,11 +166,27 @@
 }
 
 /* Estilos de botones */
+
+.button_grid_custom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-gap: 10px; */
+    width: 13%;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_grid_custom:hover {
+    cursor: pointer;
+    background-color: #89b0c4;
+    color: #000000;
+}
+
 .button_custom {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.2rem;
+    padding: 1rem 4rem;
     transition: all 0.3s ease-in-out;
 }
 
