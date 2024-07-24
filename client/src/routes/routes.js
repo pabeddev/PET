@@ -17,5 +17,6 @@ export const usersRoutes = {
 
 export const pets = {
     pets: '/pets',
+    petsMap: '/pets-map',
 }
 

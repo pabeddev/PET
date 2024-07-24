@@ -3,7 +3,6 @@ import { axiosInstance } from "../utilities/axiosInstance";
 
 export const obtenerMascotas = async () => {
     const data = await axiosInstance.get("/posts/");
-    console.log(data.data);
     return data.data;
 }
 
@@ -26,22 +25,9 @@ export const getPet = (idPet) => {
 export const addComment = async (idPet, data, token) => {
     const config = {
         headers: {
-            // tipo de dato text
             "Content-Type": "text/plain",
             "Authorization": `Bearer ${token}`
         }
     }
-
-    try{
-        const response = await axiosInstance.post(`/posts/comment?pet=${idPet}`, data, config);
-
-        return response.data;
-
-    }catch(error) {
-        console.log(error);
-        if(error.response.status === 500) {
-            return { error: "Error al agregar el comentario" }
-        }
-    }
-
+    return axiosInstance.post(`/users/posts/comment/${idPet}`, data, config);
 }

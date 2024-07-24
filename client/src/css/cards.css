@@ -6,12 +6,6 @@
   gap: 30px;
 }
 
-.searching {
-  padding: 8px;
-  border: 1px solid #6a6a6a;
-  border-radius: 4px;
-}
-
 .dropdown {
   width: 100px;
   height: auto;
@@ -60,7 +54,8 @@
 }
 
 .card-image {
-  border: 3px solid #fff;
+  /* TODO: REVISAR QUE EL BORDE SE ENCUENTRE BIEN */
+  /* border: 3px solid #fff; */
   border-radius: 32px;
   overflow: hidden;
 }
@@ -125,6 +120,8 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
+
+
 
 button:hover {
   background-color: #fff;

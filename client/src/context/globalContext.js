@@ -20,16 +20,31 @@ export const loaderData = create((setState) => ({
 }));
 
 export const toastData = create((setState) => ({
-  toastSuccess: (message) => {
-    toast.success(message);
-  },
-  toastError: (message) => {
-    toast.error(message);
-  },
-  toastLoading: (message) => {
-    toast.loading(message);
-  },
-  toaster: <Toaster />,
+    toastSuccess: (message) => {
+        toast(message, {
+            icon: "👌",
+            style: {
+                borderRadius: "10px",
+                background: "#333",
+                color: "#fff",
+            },
+        });
+    },
+    toastError: (message) => {
+        toast.error(message, {
+            // icon: "🚩🛑",
+            icon: "❌",
+            style: {
+                borderRadius: "10px",
+                background: "#333",
+                color: "#fff",
+            },
+        });
+    },
+    toastLoading: (message) => {
+        toast.loading(message);
+    },
+    toaster: <Toaster />,
 }));
 
 export const searchPet = create((setState) => ({
