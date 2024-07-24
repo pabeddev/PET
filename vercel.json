@@ -16,7 +16,7 @@
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "server/public/build/$1"
+      "dest": "client/$1"
     },
     {
       "src": "/(.*)",

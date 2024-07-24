@@ -73,12 +73,12 @@ app.use("/api/v3/bulletins", bulletinsRouter);
 app.use("/api/v3/associations", associationRouter);
 
 if (process.env.NODE_ENV === "production") {
-  // configure express to use the public folder
-  app.use(express.static(__dirname + "../client"));
+  // Sirve archivos estáticos desde el directorio build
+  app.use(express.static(path.join(__dirname, "../client/build")));
 
-  // Send index.html to all requests
-  app.get("*", function (req, res) {
-    res.sendFile(__dirname + "../client/index.html");
+  // Envío del archivo index.html para cualquier otra solicitud
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
   });
 }
 
