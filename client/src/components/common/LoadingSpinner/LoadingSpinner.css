@@ -2,6 +2,7 @@
     width: 30px;
     aspect-ratio: 1;
     display: grid;
+    color: black;
 }
 
 .loader::before,

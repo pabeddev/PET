@@ -39,7 +39,7 @@ const ImportanciaMascotas = () => {
       <div className="container-pminfo px-4 py-2" id="custom-cards">
         <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-3">
           <div className="col">
-            <div className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
+            <div className="card-pm card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
               <div className="d-flex flex-column h-100 p-3 pb-3 text-white text-shadow-1">
                 <h3 className="pt-1 mt-5 mb-4 display-6 lh-1 fw-bold text-center">
                   Compañía Inigualable
@@ -54,7 +54,7 @@ const ImportanciaMascotas = () => {
             </div>
           </div>
           <div className="col">
-            <div className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
+            <div className="card-pm card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
               <div className="d-flex flex-column h-100 p-3 pb-3 text-white text-shadow-1">
                 <h3 className="pt-1 mt-5 mb-4 display-6 lh-1 fw-bold text-center">
                   Amor Incondicional
@@ -69,7 +69,7 @@ const ImportanciaMascotas = () => {
             </div>
           </div>
           <div className="col">
-            <div className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
+            <div className="card-pm card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
               <div className="d-flex flex-column h-100 p-3 pb-3 text-shadow-1">
                 <h3 className="pt-1 mt-5 mb-4 display-6 lh-1 fw-bold text-center">
                   Reducción del Estrés
@@ -84,7 +84,7 @@ const ImportanciaMascotas = () => {
             </div>
           </div>
           <div className="col">
-            <div className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
+            <div className="card-pm card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
               <div className="d-flex flex-column h-100 p-3 pb-3 text-white text-shadow-1">
                 <h3 className="pt-1 mt-5 mb-4 display-6 lh-1 fw-bold text-center">
                   Alegría Cotidiana
@@ -99,7 +99,7 @@ const ImportanciaMascotas = () => {
             </div>
           </div>
           <div className="col">
-            <div className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
+            <div className="card-pm card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
               <div className="d-flex flex-column h-100 p-3 pb-3 text-white text-shadow-1">
                 <h3 className="pt-1 mt-5 mb-4 display-6 lh-1 fw-bold text-center">
                   Propósito y Responsabilidad
@@ -113,7 +113,7 @@ const ImportanciaMascotas = () => {
             </div>
           </div>
           <div className="col">
-            <div className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
+            <div className="card-pm card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg custom-card">
               <div className="d-flex flex-column h-100 p-3 pb-3 text-shadow-1">
                 <h3 className="pt-1 mt-5 mb-4 display-6 lh-1 fw-bold text-center">
                   Un Vínculo Inquebrantable
