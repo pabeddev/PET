@@ -74,11 +74,11 @@ app.use("/api/v3/associations", associationRouter);
 
 if (process.env.NODE_ENV === "production") {
   // configure express to use the public folder
-  app.use(express.static(__dirname + "/public/build"));
+  app.use(express.static(__dirname + "../client"));
 
   // Send index.html to all requests
   app.get("*", function (req, res) {
-    res.sendFile(__dirname + "/public/build/index.html");
+    res.sendFile(__dirname + "../client/index.html");
   });
 }
 
