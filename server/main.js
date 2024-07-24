@@ -10,6 +10,7 @@ const { adminRouter } = require("./routes/adminRoutes");
 const { rescuerRouter } = require("./routes/rescuerRoutes");
 const { associationRouter } = require("./routes/associationRoutes");
 const { HandlerHttpVerbs } = require("./errors/handlerHttpVerbs");
+const path = require("path");
 const mainDocs = require("./swagger/mainDocs");
 const swaggerUi = require("swagger-ui-express");
 const morgan = require("morgan");
