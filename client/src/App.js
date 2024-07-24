@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import './css/App.css';
+import "./css/App.css";
 
 import Dev from "components/Dev";
 // Componentes principales
@@ -34,6 +34,7 @@ import { usersRoutes, indexRoutes, pets } from "routes/routes";
 import RouteProtect from "routes/RouteProtect/RouteProtect";
 
 import { toastData } from "context/globalContext";
+import MapViewPetsLost from "components/pets/MapViewPetsLost";
 
 const App = () => {
   const { loadingData } = loaderData();
@@ -45,11 +46,9 @@ const App = () => {
         <div>Loading...</div>
       ) : (
         <div className="container-app">
-          
           <Navbar />
           <main className="container-main">
             <Routes>
-
               {/* Index */}
               <Route
                 path={indexRoutes.main}
@@ -81,10 +80,10 @@ const App = () => {
               {/* Rutas privadas */}
 
               {/* Rutas de informacion */}
-              <Route
-                path={pets.pets}
-                element={<MascotasPerdidas />}
-              />
+              <Route path={pets.pets} element={<MascotasPerdidas />} />
+
+              <Route path={pets.petsMap} element={<MapViewPetsLost/>} />
+
               <Route
                 path={usersRoutes.userPetAdoption}
                 element={<Adopcion />}
@@ -109,12 +108,12 @@ const App = () => {
               <Route path="/Mis-Mascotas" element={<UserPost />} />
               <Route path="/Mis-Anuncios" element={<SociosAnuncios />} />
               <Route
-                path="/Mascota-Perdida/:id_user/:id_pet/"
+                path="/Mascota-Perdida/:id_pet/"
                 element={<MascotaPerdida />}
               />
             </Routes>
           </main>
-          { <Footer /> }
+          {<Footer />}
         </div>
       )}
     </>

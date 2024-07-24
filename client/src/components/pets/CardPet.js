@@ -4,13 +4,13 @@ import '../../css/cards.css'
 import MoodIcon from "@mui/icons-material/Mood";
 import MoodBadIcon from '@mui/icons-material/MoodBad';
 
-const CardPet = ({ pet }) => {
+const CardPet = ({ pet, user = false }) => {
     const navigate = useNavigate();
     const [isExpanded, setIsExpanded] = useState(false)
     const [showAllDetails, setShowAllDetails] = useState(false);
 
     const onClickInformacionContacto = (idPet, idUser) => {
-        navigate(`/Mascota-Perdida/${idUser}/${idPet}`);
+        navigate(`/Mascota-Perdida/${idPet}`);
         return;
     }
 
@@ -46,10 +46,10 @@ const CardPet = ({ pet }) => {
                     {"Encontrado"}
                   </>
                 ) : (
-                    <>
-                        <MoodBadIcon />
-                        {" Perdido"}
-                    </>
+                  <>
+                    <MoodBadIcon />
+                    {" Perdido"}
+                  </>
                 )}
               </p>
               <div className="card-information">
@@ -69,27 +69,42 @@ const CardPet = ({ pet }) => {
                   <p className="card-text">Especie: {pet.details.specie}</p>
                 </>
               )}
-              <div className="button-group button">
-                <button
-                  className={` ${showAllDetails ? "" : ""}`}
-                  onClick={() => setShowAllDetails(!showAllDetails)}
-                >
-                  {showAllDetails ? "Ver menos" : "Ver más"}
-                </button>
-                <button
-                  onClick={(evt) =>
-                    onClickInformacionContacto(pet._id, pet.user)
-                  }
-                  className=""
-                >
-                  Contactar
-                </button>
-              </div>
-              {isExpanded && (
+              {user ? (
+                <div className="button-group button">
+                  <button
+                    onClick={(evt) =>
+                      onClickInformacionContacto(pet._id, pet.user)
+                    }
+                    className=""
+                  >
+                    Ver más
+                  </button>
+                </div>
+              ) : (
+                <div className="button-group button">
+                  <button
+                    className={` ${showAllDetails ? "" : ""}`}
+                    onClick={() => setShowAllDetails(!showAllDetails)}
+                  >
+                    {showAllDetails ? "Ver menos" : "Ver más"}
+                  </button>
+                  <button
+                    onClick={(evt) =>
+                      onClickInformacionContacto(pet._id, pet.user)
+                    }
+                    className=""
+                  >
+                    Contactar
+                  </button>
+                </div>
+              )}
+
+              {/* TODO: REVISAR SI ESTO FUNCIONA PARA ALGO */}
+              {/* {isExpanded && (
                 <button className="close-button" onClick={handleCloseClick}>
                   X
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         </div>

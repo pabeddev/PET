@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "bootstrap": "^5.3.3",
-    "mapbox-gl": "^3.5.2",
-    "react-bootstrap": "^2.10.4"
-  }
-}

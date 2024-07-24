@@ -1,0 +1,6 @@
+.marker {
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    cursor: pointer;
+}

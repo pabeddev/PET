@@ -1,6 +1,6 @@
 import "../../css/mascotasperdidas.css";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CardPet from "./CardPet";
 import { obtenerMascotas } from "../../api/pets";
 import { genders, breeds, species } from "utilities/maps";
@@ -93,115 +93,127 @@ const MascotasPerdidas = () => {
 
   return (
     <>
-      <div className="container mt-4 contenido">
-        {/* Sección de filtros */}
-        <Accordion defaultActiveKey="0">
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>Filtros</Accordion.Header>
-            <Accordion.Body>
-              <div className="selector-grid">
-                <div className="selector">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Buscar por nombre"
-                    onChange={handleSearch}
-                    value={filters.name}
-                    className="form-control"
-                  />
-                </div>
-                <div className="selector">
-                  <input
-                    type="text"
-                    name="description"
-                    placeholder="Buscar por descripción"
-                    onChange={handleSearch}
-                    value={filters.description}
-                    className="form-control"
-                  />
-                </div>
-                <div className="selector">
-                  <select
-                    name="specie"
-                    onChange={handleSearch}
-                    value={filters.specie}
-                    className="form-select"
-                  >
-                    <option value="">Especie</option>
-                    {species.map((specie) => (
-                      <option key={specie} value={specie}>
-                        {specie}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="selector">
-                  <select
-                    name="breed"
-                    onChange={handleSearch}
-                    value={filters.breed}
-                    className="form-select"
-                    disabled={!filters.specie}
-                  >
-                    <option value="">Raza</option>
-                    {filters.specie &&
-                      breeds[filters.specie]?.map((breed) => (
-                        <option key={breed} value={breed}>
-                          {breed}
+      <div className="container-fluid mt-4 contenido">
+        <h1 className="text-center hero-title">Mascotas Perdidas</h1>
+        <div className="container my-2 text-center">
+          <p className="hero-subtitle">
+            Ayúdanos a encontrar a estas mascotas perdidas
+          </p>
+          <p>Ver todas las mascotas perdidas en el mapa</p>
+          <Link to="/pets-map" className="btn btn-primary">
+            Ver mapa
+          </Link>
+        </div>
+
+        <div className="container pt-3">
+          <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>Filtros</Accordion.Header>
+              <Accordion.Body>
+                <div className="selector-grid">
+                  <div className="selector">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Buscar por nombre"
+                      onChange={handleSearch}
+                      value={filters.name}
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="selector">
+                    <input
+                      type="text"
+                      name="description"
+                      placeholder="Buscar por descripción"
+                      onChange={handleSearch}
+                      value={filters.description}
+                      className="form-control"
+                    />
+                  </div>
+                  <div className="selector">
+                    <select
+                      name="specie"
+                      onChange={handleSearch}
+                      value={filters.specie}
+                      className="form-select"
+                    >
+                      <option value="">Especie</option>
+                      {species.map((specie) => (
+                        <option key={specie} value={specie}>
+                          {specie}
                         </option>
                       ))}
-                  </select>
+                    </select>
+                  </div>
+                  <div className="selector">
+                    <select
+                      name="breed"
+                      onChange={handleSearch}
+                      value={filters.breed}
+                      className="form-select"
+                      disabled={!filters.specie}
+                    >
+                      <option value="">Raza</option>
+                      {filters.specie &&
+                        breeds[filters.specie]?.map((breed) => (
+                          <option key={breed} value={breed}>
+                            {breed}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                  <div className="selector">
+                    <select
+                      name="gender"
+                      onChange={handleSearch}
+                      value={filters.gender}
+                      className="form-select"
+                    >
+                      <option value="">Género</option>
+                      {genders.map((gender) => (
+                        <option key={gender} value={gender}>
+                          {gender}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  {/* Botón de reset */}
+                  <div className="selector">
+                    <button className="button_filters" onClick={handleReset}>
+                      <SearchOffIcon />
+                    </button>
+                  </div>
                 </div>
-                <div className="selector">
-                  <select
-                    name="gender"
-                    onChange={handleSearch}
-                    value={filters.gender}
-                    className="form-select"
-                  >
-                    <option value="">Género</option>
-                    {genders.map((gender) => (
-                      <option key={gender} value={gender}>
-                        {gender}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                {/* Botón de reset */}
-                <div className="selector">
-                  <button className="button_filters" onClick={handleReset}>
-                    <SearchOffIcon />
-                  </button>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+          {loading ? (
+            <h1 className="text-center mt-5">
+              <div className="container-animation">
+                <div className="cargando">
+                  <div className="pelotas"></div>
+                  <div className="pelotas"></div>
+                  <div className="pelotas"></div>
+                  <span className="texto-cargando">Cargando...</span>
                 </div>
               </div>
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-
-        {loading ? (
-          <h1 className="text-center mt-5">
-            <div className="container-animation">
-              <div className="cargando">
-                <div className="pelotas"></div>
-                <div className="pelotas"></div>
-                <div className="pelotas"></div>
-                <span className="texto-cargando">Cargando...</span>
-              </div>
+            </h1>
+          ) : filteredPets.length === 0 ? (
+            <h1 className="text-center mt-5">
+              No hay mascotas perdidas en este momento
+            </h1>
+          ) : (
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-1">
+              {filteredPets.map((pet) => (
+                <div key={pet._id} className="col">
+                  <CardPet pet={pet} />
+                </div>
+              ))}
             </div>
-          </h1>
-        ) : filteredPets.length === 0 ? (
-          <h1 className="text-center mt-5">
-            No hay mascotas perdidas en este momento
-          </h1>
-        ) : (
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-1">
-            {filteredPets.map((pet) => (
-              <div key={pet._id} className="col">
-                <CardPet pet={pet} />
-              </div>
-            ))}
-          </div>
-        )}
+          )}
+        </div>
+        {/* Sección de filtros */}
       </div>
     </>
   );

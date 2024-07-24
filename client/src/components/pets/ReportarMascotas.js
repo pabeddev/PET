@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import mapboxgl from "mapbox-gl";
 import { createPost } from "../../api/pets";
 import { authUserStore, toastData } from "../../context/globalContext";
 import "css/ReportarMascotas.css";
@@ -120,9 +119,6 @@ const ReportarMascotas = () => {
       [name]: type === "checkbox" ? checked : value,
     });
   };
-
-  mapboxgl.accessToken =
-    "pk.eyJ1IjoibWFpbmxha2UiLCJhIjoiY2x5dmFiOWIwMDBwNDJrcHoyNDhmcmJoNCJ9.-3AL3FN0XWB5D-vJpEkWqA";
 
   return (
     <div className="container_reportar_mascotas md_container_one">
