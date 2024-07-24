@@ -1,4 +1,3 @@
-
 {
   "version": 2,
   "builds": [
@@ -16,13 +15,12 @@
   ],
   "routes": [
     {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
+      "src": "/static/(.*)",
+      "dest": "server/public/build/$1"
     },
     {
       "src": "/(.*)",
       "dest": "server/main.js"
     }
-    
   ]
 }
