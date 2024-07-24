@@ -75,7 +75,6 @@ app.use("/api/v3/bulletins", bulletinsRouter);
 app.use("/api/v3/associations", associationRouter);
 
 if (process.env.NODE_ENV === "production") {
-
   // public folder
   app.use(express.static(path.join(__dirname, "public/build")));
 
@@ -83,7 +82,6 @@ if (process.env.NODE_ENV === "production") {
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "public/build", "index.html"));
   });
-
 }
 
 app.use((req, res) => {
@@ -99,5 +97,11 @@ app.use((req, res) => {
 });
 
 app.listen(parseInt(process.env.PORT, 10), () => {
-  console.log(`Server running on port http://localhost:${process.env.PORT} 🚀`);
+  if (process.env.NODE_ENV === "development") {
+    console.log("Servidor inciado con exito 🚀");
+  } else {
+    console.log(
+      `Server running on port http://localhost:${process.env.PORT} 🚀`
+    );
+  }
 });
