@@ -1,10 +1,9 @@
 {
   "scripts": {
     "build": "npm run build_front && npm run move_dist && npm run build_server",
-    "build_front": "cd client && CI=false npm run build",
+    "build_front": "cd client && npm install && CI=false npm run build",
     "move_dist": "mkdir -p server/public && cp -r client/build/* server/public/",
     "build_server": "cd server && npm install",
-    "start": "cd server && node main.js",
-    "vercel-build": "CI=false npm run build"
+    "start": "cd server && node main.js"
   }
 }
