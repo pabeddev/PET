@@ -74,13 +74,14 @@ app.use("/api/v3/bulletins", bulletinsRouter);
 app.use("/api/v3/associations", associationRouter);
 
 if (process.env.NODE_ENV === "production") {
-  // Sirve archivos estáticos desde el directorio build
+  // optimizar para vercel
   app.use(express.static(path.join(__dirname, "../client/build")));
-
-  // Envío del archivo index.html para cualquier otra solicitud
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/build", "index.html"));
   });
+
+  // ver en consola los archivos que se estan en el directorio
+  console.log(path.join(__dirname, "../client/build"));
 }
 
 
