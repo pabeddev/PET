@@ -75,10 +75,13 @@ app.use("/api/v3/bulletins", bulletinsRouter);
 app.use("/api/v3/associations", associationRouter);
 
 if (process.env.NODE_ENV === "production") {
-  // optimizar para vercel
-  app.use(express.static(path.join(__dirname, "../client")));
-  app.get("/*", function (req, res) {
-    res.sendFile(path.resolve(__dirname, "../client", "index.html"));
+
+  // public folder
+  app.use(express.static(path.join(__dirname, "public/build")));
+
+  // Handle SPA
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "public/build", "index.html"));
   });
 
 }
