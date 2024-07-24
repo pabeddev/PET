@@ -23,6 +23,7 @@ const {
   blogsRouter,
 } = require("./routes/guestRoutes");
 const { errorsCodes } = require("./utils/codes");
+const e = require("express");
 const app = express();
 
 app.use(express.json());
@@ -75,9 +76,9 @@ app.use("/api/v3/associations", associationRouter);
 
 if (process.env.NODE_ENV === "production") {
   // optimizar para vercel
-  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.use(express.static(path.join(__dirname, "../client/")));
   app.get("/*", function (req, res) {
-    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "../client/", "index.html"));
   });
 
 }
