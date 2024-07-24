@@ -76,14 +76,11 @@ app.use("/api/v3/associations", associationRouter);
 if (process.env.NODE_ENV === "production") {
   // optimizar para vercel
   app.use(express.static(path.join(__dirname, "../client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+  app.get("/*", function (req, res) {
+    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
   });
 
-  // ver en consola los archivos que se estan en el directorio
-  console.log(path.join(__dirname, "../client/build"));
 }
-
 
 app.use((req, res) => {
   res
