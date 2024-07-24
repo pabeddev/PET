@@ -1,6 +1,6 @@
 import "../../css/mascotasperdidas.css";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CardPet from "./CardPet";
 import { obtenerMascotas } from "../../api/pets";
 import { genders, breeds, species } from "utilities/maps";

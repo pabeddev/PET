@@ -33,6 +33,7 @@
     "react-spinners": "^0.13.8",
     "spinners-react": "^1.0.7",
     "web-vitals": "^2.1.4",
+    "worker-loader": "^3.0.8",
     "zustand": "^4.5.2"
   },
   "scripts": {
@@ -58,5 +59,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0"
   }
 }

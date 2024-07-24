@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLayoutEffect } from "react";
 import mapboxgl from "mapbox-gl";
 
+
 const MapView = ({
   markerCordinates,
   setMarkerCordinates,
@@ -23,6 +24,8 @@ const MapView = ({
   const mapRef = useRef(null); // Referencia para el mapa
 
   useLayoutEffect(() => {
+    mapboxgl.accessToken =
+      "pk.eyJ1IjoibWFpbmxha2UiLCJhIjoiY2x5dmFiOWIwMDBwNDJrcHoyNDhmcmJoNCJ9.-3AL3FN0XWB5D-vJpEkWqA";
     // Inicializa el mapa solo una vez
     mapRef.current = new mapboxgl.Map({
       container: mapDiv.current,
@@ -71,6 +74,8 @@ const MapView = ({
   }, []);
 
   useEffect(() => {
+    mapboxgl.accessToken =
+      "pk.eyJ1IjoibWFpbmxha2UiLCJhIjoiY2x5dmFiOWIwMDBwNDJrcHoyNDhmcmJoNCJ9.-3AL3FN0XWB5D-vJpEkWqA";
     if (!mapRef.current) return; // Asegurar que el mapa esté inicializado
 
     // Limpiar marcadores anteriores

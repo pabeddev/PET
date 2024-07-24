@@ -21,6 +21,7 @@ const UserPost = () => {
     const getDataPetsUser = async () => {
       try {
         const response = await getPetsUser(user.dataToken.token);
+        console.log(response);
         setPosts(response.data);
       } catch (error) {
         toastError("Error al obtener las mascotas perdidas");
