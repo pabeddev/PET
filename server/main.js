@@ -76,9 +76,9 @@ app.use("/api/v3/associations", associationRouter);
 
 if (process.env.NODE_ENV === "production") {
   // optimizar para vercel
-  app.use(express.static(path.join(__dirname, "../client/")));
+  app.use(express.static(path.join(__dirname, "../client")));
   app.get("/*", function (req, res) {
-    res.sendFile(path.resolve(__dirname, "../client/", "index.html"));
+    res.sendFile(path.resolve(__dirname, "../client", "index.html"));
   });
 
 }
