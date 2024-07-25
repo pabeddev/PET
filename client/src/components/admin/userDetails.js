@@ -1,5 +1,6 @@
 import React from "react";
 import UserList from "./userList";
+import UserCollaboratorList from "./userCollaboratorList";
 
 const UserDetails = ({ user, onBack }) => {
     const hasAddress = user.address && user.address.trim() !== '';

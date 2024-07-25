@@ -75,7 +75,7 @@ export const eliminarUsuarioColaborador = async (token, deleteId) => {
     }
 
     try{
-        const responseDlt = await axiosInstance.delete(`/api/v3/admins/collabs/${deleteId}`, config)
+        const responseDlt = await axiosInstance.delete(`/api/v3/admins/rescuers/${deleteId}`, config)
         console.log(responseDlt);
         return responseDlt.data
     }catch(error) {
