@@ -100,7 +100,7 @@ const MascotasPerdidas = () => {
             Ayúdanos a encontrar a estas mascotas perdidas
           </p>
           <p>Ver todas las mascotas perdidas en el mapa</p>
-          <Link to="/pets-map" className="btn btn-primary">
+          <Link to="/pets-map" className="button_filters">
             Ver mapa
           </Link>
         </div>
