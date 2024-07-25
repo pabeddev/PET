@@ -17,6 +17,8 @@ const morgan = require("morgan");
 const cors = require("cors");
 require("dotenv").config();
 const express = require("express");
+
+
 const {
   postsRouter,
   bulletinsRouter,
@@ -73,6 +75,10 @@ app.use("/api/v3/posts", postsRouter);
 app.use("/api/v3/blogs", blogsRouter);
 app.use("/api/v3/bulletins", bulletinsRouter);
 app.use("/api/v3/associations", associationRouter);
+
+if( process.env.NODE_ENV_PRODUCTION_VERCEL ) {
+  // TODO: POR SI EN ALGUN MOMEMNTO SE NECESITA
+}
 
 if (process.env.NODE_ENV === "production") {
   // public folder
