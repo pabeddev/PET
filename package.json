@@ -5,10 +5,5 @@
     "move_dist": "mkdir -p server/public && cp -r client/build/ server/public/",
     "build_server": "cd server && npm install",
     "start": "cd server && node main.js"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
-    "@mui/material": "^5.16.4"
   }
 }
