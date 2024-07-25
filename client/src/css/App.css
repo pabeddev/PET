@@ -10,3 +10,10 @@
 .container-main {
     margin-bottom: 50px;
 }
+
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
