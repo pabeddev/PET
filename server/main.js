@@ -76,8 +76,20 @@ app.use("/api/v3/blogs", blogsRouter);
 app.use("/api/v3/bulletins", bulletinsRouter);
 app.use("/api/v3/associations", associationRouter);
 
-if( process.env.NODE_ENV === "production_vercel" ){ {
+if( process.env.NODE_ENV === "production_vercel" ) {
   // TODO: POR SI EN ALGUN MOMEMNTO SE NECESITA
+  app.get("/", (req, res) => {
+    res.status(200).json(
+      HandlerHttpVerbs.ok(
+        "🦮🐩🐈🦜 Welcome to the Lost in Tapachula (PET) API v3.1 🦮🐩🐈🦜",
+        undefined,
+        {
+          url: req.baseUrl,
+          verb: req.method,
+        }
+      )
+    );
+  });
 }
 
 if (process.env.NODE_ENV === "production") {
