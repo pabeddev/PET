@@ -42,6 +42,7 @@
 .main-title-font {
   font-size: 3em;
   font-weight: bold;
+  color: black;
 }
 
 .main-link {
@@ -84,6 +85,7 @@
   .container-main-index {
     display: flex;
     flex-direction: column;
+    margin-bottom: 275px;
   }
 
   .main-content {

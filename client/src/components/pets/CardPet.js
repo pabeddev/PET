@@ -57,7 +57,7 @@ const CardPet = ({ pet, user = false }) => {
                   {" "}
                   <span className="race">Raza:</span> {pet.details.breed}
                 </p>
-                <p className="card-place">Ultima vez visto :</p>
+                <p className="card-place">Última vez visto :</p>
                 <p className="card-text-place">{pet.publication.last_seen}</p>
               </div>
               {showAllDetails && (

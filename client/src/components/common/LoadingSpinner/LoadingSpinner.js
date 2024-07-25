@@ -1,6 +1,6 @@
 import './LoadingSpinner.css';
 
-const LoadingSpinner = ({ size = "md", color = "primary", type="default"}) => {
+const LoadingSpinner = ({ size = "md", color = "black", type="default"}) => {
     return <div className="loader"></div>;
 }
 

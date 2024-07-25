@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ComoReporto = () => {
   return (
-    <div className="section contenido">
+    <div className="section contenido-cm">
       <div className="hero-content">
           <h1 className="hero-title">¿Cómo Reporto?</h1>
         </div>
