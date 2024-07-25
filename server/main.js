@@ -76,7 +76,7 @@ app.use("/api/v3/blogs", blogsRouter);
 app.use("/api/v3/bulletins", bulletinsRouter);
 app.use("/api/v3/associations", associationRouter);
 
-if( process.env.NODE_ENV_PRODUCTION_VERCEL ) {
+if( process.env.NODE_ENV_PRODUCTION_VERCEL === "production_vercel" ){ {
   // TODO: POR SI EN ALGUN MOMEMNTO SE NECESITA
 }
 
