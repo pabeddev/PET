@@ -21,6 +21,23 @@
   cursor: pointer;
 }
 
+.btn_comment_login {
+  padding: 0.5rem 1rem;
+    /* Ajusta el padding según sea necesario */
+    font-size: 1rem;
+    /* Ajusta el tamaño de la fuente */
+    display: inline-block;
+    /* Asegura que el botón se ajuste al contenido */
+    border: none;
+    /* Opcional: quita el borde predeterminado */
+    background-color: #007bff;
+    /* Ejemplo de color de fondo */
+    color: white;
+    /* Ejemplo de color de texto */
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre el botón */
+}
+
 .btn_comment:hover {
   background-color: #45a049;
   color: white;

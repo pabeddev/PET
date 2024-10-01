@@ -6,6 +6,7 @@ import "../../css/comments.css";
 import { CSpinner } from "@coreui/react";
 
 import { toastData } from "../../context/globalContext";
+import { Link } from "react-router-dom";
 
 const CommentsPet = ({ comments, idPet, setComments }) => {
   console.log(comments);
@@ -64,15 +65,21 @@ const CommentsPet = ({ comments, idPet, setComments }) => {
         {isAuthenticated ? (
           <div className="text-center mt-2">
             <button onClick={onClickAddComment} className="btn_comment">
-              {!loading ? "Enviar" : <CSpinner color="primary" />}
+              {!loading ? (
+                "Enviar"
+              ) : (
+                <div className="spinner-container">
+                  <CSpinner color="primary" className="" />
+                </div>
+              )}
             </button>
           </div>
         ) : (
           <div className="text-center mt-2">
-            <p>Para agregar un comentario, por favor inicia sesión.</p>
-            <button className="btn-comment" disabled>
+            <p className="text-muted">Inicia sesión para comentar</p>
+            <Link to="/user/login" className="btn btn-primary">
               Iniciar Sesión
-            </button>
+            </Link>
           </div>
         )}
       </div>

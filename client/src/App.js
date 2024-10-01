@@ -43,7 +43,10 @@ const App = () => {
     <>
       {toaster}
       {loadingData ? (
-        <div>Loading...</div>
+        <div className="loading-container">
+          <div className="spinner"></div>
+          <div className="loading-text">Cargando...</div>
+        </div>
       ) : (
         <div className="container-app">
           <Navbar />
@@ -82,7 +85,7 @@ const App = () => {
               {/* Rutas de informacion */}
               <Route path={pets.pets} element={<MascotasPerdidas />} />
 
-              <Route path={pets.petsMap} element={<MapViewPetsLost/>} />
+              <Route path={pets.petsMap} element={<MapViewPetsLost />} />
 
               <Route
                 path={usersRoutes.userPetAdoption}

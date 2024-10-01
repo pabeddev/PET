@@ -148,7 +148,13 @@ const Login = () => {
         </div>
 
         <button type="submit" className="buttonLog">
-          {!isLoading ? "Iniciar Sesión" : <CSpinner color="primary" />}
+          {!isLoading ? (
+            "Iniciar Sesión"
+          ) : (
+            <div className="spinner-container">
+              <CSpinner color="primary" className="" />
+            </div>
+          )}
         </button>
       </form>
     </div>
