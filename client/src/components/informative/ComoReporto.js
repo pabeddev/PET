@@ -24,7 +24,7 @@ const ComoReporto = () => {
             </p>
           </div>
           <div className="col-md-10 mx-auto col-lg-5">
-            <form className="p- p-md-5 border rounded-3 bg-body-tertiary">
+            <form className="p-4 p-md-5 border rounded-3 bg-body-tertiary">
               <div className="form-floating mb-3">
                 <input
                   type="email"
